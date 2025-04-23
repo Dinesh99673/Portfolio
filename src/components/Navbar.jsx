@@ -32,7 +32,7 @@ const Navbar = () =>{
                     About
                     <span className="absolute left-0 bottom-0 w-0 h-[3px] rounded-full bg-purple-500 transition-all duration-500 group-hover:w-full"></span>
                 </button>
-                <button  className=" text-white flex transition relative group">
+                <button  className=" text-white flex transition relative group" onClick={()=>{navigate("/project")}}>
                     <AiOutlineFundProjectionScreen className="mr-2 mt-1"/>
                     Projects
                     <span className="absolute left-0 bottom-0 w-0 h-[3px] rounded-full bg-purple-500 transition-all duration-500 group-hover:w-full"></span>
@@ -60,7 +60,7 @@ const Navbar = () =>{
 
             {/* Mobile Dropdown Menu */}
             <div
-                className={`Header absolute top-0 left-0 w-full mt-16 text-xl text-white md:hidden flex flex-col items-center space-y-4 transition-transform duration-500 ease-in-out ${
+                className={`Header absolute top-0 left-0 w-full mt-16 text-xl text-white md:hidden flex flex-col items-center space-y-4 transition-transform duration-500 ease-in-out${
                     menuOpen
                     ? "transform translate-y-0 opacity-100 pointer-events-auto"
                     : "transform -translate-y-full opacity-0 pointer-events-none"
@@ -80,7 +80,7 @@ const Navbar = () =>{
                     className="flex text-white font-semibold transition"
                     onClick={() => {
                     setMenuOpen(false);
-                    navigate("/projects");
+                    navigate("/project");
                     }}
                 >
                     <AiOutlineFundProjectionScreen className="mr-2 mt-1" />

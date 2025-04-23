@@ -21,8 +21,8 @@ const Introduction = () => {
                   I fell in love with programming and I have at least learnt something, I think… 🤷‍♂️
                   <br />
                   <br />
-                  I am fluent in technologies such as
-                  <b className="text-purple-500"> JavaScript, Python, and Spring Boot</b>, and I enjoy crafting efficient and scalable applications.
+                  I am fluent in classics like
+                  <b className="text-purple-500"> C, C++, JavaScript and Java </b>
                   <br />
                   <br />
                   My interests span
@@ -31,8 +31,7 @@ const Introduction = () => {
                   <br />
                   <br />
                   I'm always eager to learn and contribute to projects involving
-                  <b className="text-purple-500"> modern frameworks like React.js, Next.js</b>, and back-end technologies such as
-                  <b className="text-purple-500"> Node.js</b>.
+                  <b className="text-purple-500"> modern frameworks like Spring Boot.</b>
                   <br />
                   <br />
                   Let's build something amazing together!
