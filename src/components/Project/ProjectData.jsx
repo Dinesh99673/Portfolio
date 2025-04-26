@@ -10,7 +10,7 @@ const ProjectData = [
     {
       title: "1SAATH",
       description:
-        "a full-stack web platform where NGOs can register, manage events, and receive donations. Integrated secure payment gateways and NGO-to-NGO Donation features to promote visibility and funding for rural NGOs.",
+        "A full-stack web platform where NGOs can register, manage events, and receive donations. Integrated secure payment gateways and NGO-to-NGO Donation features to promote visibility and funding for rural NGOs.",
       tech: ["React", "Spring Boot", "PostgreSQL", "Redis", "Tailwind"],
       image: saath,
       githubLink:"https://github.com/Dinesh99673/Ngo_Backend",
