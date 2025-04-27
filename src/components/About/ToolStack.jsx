@@ -1,22 +1,20 @@
 import React from "react";
-import { CgCPlusPlus } from "react-icons/cg";
+import { VscVscode } from "react-icons/vsc";
+import { FaLinux } from "react-icons/fa";
 import {
-    DiJavascript1,
-    DiReact,
-    DiPython,
-    DiJava,
-    DiDatabase
+    DiWindows,
+    DiGit,
 } from "react-icons/di";
 import {
-  SiRedis,
-  SiPostgresql,
-} from "react-icons/si";
+    SiPostman,
+    SiVercel,
+  } from "react-icons/si";
 
-const TechStack = () => {
+const ToolStack = () => {
     return (
 
             <div className="flex flex-wrap justify-center gap-8 py-16 md:px-28">
-                {[DiReact,  DiJava, CgCPlusPlus, DiJavascript1, SiPostgresql, DiDatabase, DiPython, SiRedis].map((Icon, index) => (
+                {[ DiWindows, FaLinux,VscVscode, DiGit, SiPostman, SiVercel].map((Icon, index) => (
                     <div
                         key={index}
                         className="w-[150px] md:w-[200px] h-28 px-4 py-3 text-[50px] text-white rounded-md border-2 border-purple-800 flex items-center justify-center transition-transform transform duration-500 hover:scale-110 hover:bg-purple-800 hover:text-purple-300"
@@ -28,4 +26,4 @@ const TechStack = () => {
     );
 };
 
-export default TechStack;
+export default ToolStack;
