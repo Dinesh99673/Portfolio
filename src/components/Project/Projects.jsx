@@ -7,7 +7,7 @@ const Projects = () => {
 <section id="projects" className="py-16 px-5 bg-[#121212] text-white min-h-screen">
   <div className="max-w-screen-xl mx-auto mt-14">
     <h2 className="text-3xl font-semibold text-center">
-      My Recent <span className="text-purple-500">Worked</span>
+      My Recent <span className="text-purple-500">Works</span>
     </h2>
     <p className="md:text-lg text-base text-white text-center mb-14">
       Here are a few projects I've worked on recently

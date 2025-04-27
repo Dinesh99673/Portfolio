@@ -65,4 +65,9 @@
   pointer-events: auto; /* Ensure interaction works on the canvas */
 }
 
+.calendar-container svg,
+.calendar-container footer {
+  max-width: 100%;
+  height: auto;
+}
 

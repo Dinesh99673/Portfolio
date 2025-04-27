@@ -11,6 +11,7 @@ import './App.css';
 import About from "./components/About/About.jsx"
 import Resume from './components/Resume/Resume';
 import Project from './components/Project/Projects.jsx';
+import Contact from './components/Contact/Contact.jsx';
 import ParticlesComponent from './components/Particle';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/About" element={<About />} />
           <Route path="/Project" element={<Project />} />
           <Route path="/Resume" element={<Resume />} />
+          <Route path="/Contact" element={<Contact />} />
           <Route path="*" element={<Home />} />
         </Routes>
         <Footer/>

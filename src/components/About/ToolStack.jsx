@@ -13,7 +13,7 @@ import {
 const ToolStack = () => {
     return (
 
-            <div className="flex flex-wrap justify-center gap-8 py-16 md:px-28">
+            <div className="flex flex-wrap justify-center gap-8 py-12 md:px-28">
                 {[ DiWindows, FaLinux,VscVscode, DiGit, SiPostman, SiVercel].map((Icon, index) => (
                     <div
                         key={index}
