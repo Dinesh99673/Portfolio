@@ -35,7 +35,7 @@ const ProjectData = [
     {
         title: "ToDo List",
         description:
-        "Built an educational web app, Structify, to help users learn data structures interactively via dynamic visualizations, in-browser coding with output, and concise theoretical content. Integrated Piston API for code execution in multiple languages.",
+        "Developed a ToDo list Webpage. Stay organized and boost productivity with this simple and intuitive ToDo List app. Add, update, and delete your daily tasks with ease — all in one clean interface.",
         tech: ["React", "Tailwind"],
         image: toDo,
         githubLink: "https://github.com/Dinesh99673/ToDo_using_React",

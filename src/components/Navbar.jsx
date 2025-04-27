@@ -27,7 +27,7 @@ const Navbar = () =>{
                     Home
                     <span className="absolute left-0 bottom-0 w-0 h-[3px] rounded-full bg-purple-500 transition-all duration-500 group-hover:w-full"></span>
                 </button>
-                <button  className=" text-white flex transition relative group">
+                <button  className=" text-white flex transition relative group" onClick={()=>{navigate("/about")}}>
                     <AiOutlineUser className="mr-2 mt-1"/>
                     About
                     <span className="absolute left-0 bottom-0 w-0 h-[3px] rounded-full bg-purple-500 transition-all duration-500 group-hover:w-full"></span>
