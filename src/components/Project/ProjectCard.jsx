@@ -1,6 +1,12 @@
-import React from "react";
+import React,{useEffect} from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ProjectCard = ({ title, description, tech, image, githubLink, liveLink }) => {
+  useEffect(() => {
+    AOS.init();
+  }, [])
+
     return (
         
       <div className="my-1 min-w-30 sm:min-w-50 md:min-w-60  md:max-w-83 h-[550px] bg-[#121212]  rounded-xl overflow-hidden shadow-md shadow-purple-700 border-black hover:scale-105 hover:shadow-lg hover:shadow-purple-500 transition-transform duration-500">

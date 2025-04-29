@@ -11,6 +11,7 @@ import {
   } from "react-icons/si";
 
 const ToolStack = () => {
+    const title = ["Windows","Linux","Visual Studio Code","Git","Postman","Vercel"]
     return (
 
             <div className="flex flex-wrap justify-center gap-8 py-12 md:px-28">
@@ -18,6 +19,7 @@ const ToolStack = () => {
                     <div
                         key={index}
                         className="w-[150px] md:w-[200px] h-28 px-4 py-3 text-[50px] text-white rounded-md border-2 border-purple-800 flex items-center justify-center transition-transform transform duration-500 hover:scale-110 hover:bg-purple-800 hover:text-purple-300"
+                        title={title[index]}
                     >
                         <Icon />
                     </div>

@@ -2,10 +2,10 @@ import React from "react";
 
 import {
     AiFillGithub,
-    AiOutlineTwitter,
     AiFillInstagram,
   } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 
 const Footer = () =>{
     return(
@@ -22,22 +22,25 @@ const Footer = () =>{
             target="_blank"
             rel="noreferrer"
             className="text-white text-2xl"
+            title="Github"
           >
             <AiFillGithub />
           </a>
           <a
-            href="https://twitter.com/dinesh"
+            href="https://leetcode.com/u/dinesh99673/"
             target="_blank"
             rel="noreferrer"
             className="text-white text-2xl"
+            title="LeetCode"
           >
-            <AiOutlineTwitter />
+            <SiLeetcode />
           </a>
           <a
             href="www.linkedin.com/in/dinesh7821"
             target="_blank"
             rel="noreferrer"
             className="text-white text-2xl"
+            title="Linkedin"
           >
             <FaLinkedinIn />
           </a>
@@ -46,6 +49,7 @@ const Footer = () =>{
             target="_blank"
             rel="noreferrer"
             className="text-white text-2xl"
+            title="Instagram"
           >
             <AiFillInstagram />
           </a>

@@ -20,7 +20,7 @@ const Navbar = () =>{
     return (
         <header className="z-50 Header fixed top-0 md:top-3 left-0 right-0 md:w-[80%] h-16 md:h-14 mx-auto md:bg-transparent bg-gray-100 bg-opacity-[0.2] text-white md:rounded-full shadow-sm md:shadow-white flex items-center justify-between px-6">
             {/* Logo */}
-            <p className="text-[#7a2fa9] text-4xl font-extrabold font-serif">DC.</p>
+            <a className="text-[#7a2fa9] text-4xl font-extrabold font-serif" href="https://dinesh-portfolio-gilt.vercel.app/">DC.</a>
 
             {/* Desktop Menu */}
             <nav className="hidden  md:flex space-x-8 text-xl">
@@ -51,7 +51,8 @@ const Navbar = () =>{
                 </button>
                 <a
                     className=" text-gray-200 bg-purple-900 hover:bg-purple-800 ease-in-out duration-300 hover:scale-105 flex  shadow-sm shadow-purple-700 rounded-[4px] relative group"
-                    href="https://github.com/Dinesh99673/Portfolio"    
+                    href="https://github.com/Dinesh99673/Portfolio"
+                    title="Fork"
                 >
                     <CgGitFork className="mr-1 ml-3 mt-1 "/>
                     <AiFillStar className="mr-3 mt-1"/>

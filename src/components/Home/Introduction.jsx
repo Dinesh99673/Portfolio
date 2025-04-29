@@ -4,10 +4,10 @@ import avatar from "../../assets/avatar.svg";
 import Tilt from "react-parallax-tilt";
 import {
   AiFillGithub,
-  AiOutlineTwitter,
   AiFillInstagram,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 
 const Introduction = () => {
   return (
@@ -59,18 +59,20 @@ const Introduction = () => {
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
+                  title="Github"
                   >
                   <AiFillGithub />
                   </a>
               </li>
               <li className="md:w-12 md:h-12 w-10 h-10 p-4 bg-fuchsia-100 rounded-full flex justify-center items-center border-2 hover:shadow-md shadow-inner hover:border-purple-700 hover:shadow-violet-500 transition-all duration-500 ease-in-out">
                   <a
-                  href="https://google.com"
+                  href="https://leetcode.com/u/dinesh99673/"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
+                  title="LeetCode"
                   >
-                  <AiOutlineTwitter />
+                  <SiLeetcode />
                   </a>
               </li>
               <li className="md:w-12 md:h-12 w-10 h-10 p-4 bg-fuchsia-100 rounded-full flex justify-center items-center border-2 hover:shadow-md shadow-inner hover:border-purple-700 hover:shadow-violet-500 transition-all duration-500 ease-in-out">
@@ -79,6 +81,7 @@ const Introduction = () => {
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
+                  title="Linkedin"
                   >
                   <FaLinkedinIn />
                   </a>
@@ -89,6 +92,7 @@ const Introduction = () => {
                   target="_blank"
                   rel="noreferrer"
                   className=""
+                  title="Instagram"
                   >
                   <AiFillInstagram />
                   </a>
