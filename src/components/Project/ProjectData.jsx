@@ -4,6 +4,7 @@ import toDo from "../../assets/projects/todoList.png";
 import pingPongGame from "../../assets/projects/pingPongGame.png";
 import structify from "../../assets/projects/structify.png";
 import bookCollection from "../../assets/projects/bookCollection.png";
+import indiaMapQuiz from "../../assets/projects/indiaMapQuiz.png";
 
 
 const ProjectData = [
@@ -41,6 +42,14 @@ const ProjectData = [
         githubLink: "https://github.com/Dinesh99673/ToDo_using_React",
         liveLink: "https://dinesh99673.github.io/ToDo_using_React/",
     },
+    {
+        title: "India Map Quiz",
+        description:
+        " The game displays a blank map of India and prompts users to guess the names of Indian states. Correct guesses are labeled on the map, and a summary of missed states is saved in a CSV file. A great blend of fun, learning, and data handling.",
+        tech: ["Python", "Turtle", "Pandas"],
+        image: indiaMapQuiz,
+        githubLink: "https://github.com/Dinesh99673/India_Map_Quiz",
+    },    
     {
         title: "Classic Snake Game",
         description:
