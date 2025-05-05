@@ -36,7 +36,7 @@ const Footer = () =>{
             <SiLeetcode />
           </a>
           <a
-            href="www.linkedin.com/in/dinesh7821"
+            href="https://www.linkedin.com/in/dinesh7821"
             target="_blank"
             rel="noreferrer"
             className="text-white text-2xl"
