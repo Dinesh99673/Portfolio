@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineDownload } from "react-icons/ai";
-import pdf from "../../assets/Dinesh_Chaudhari.pdf";
+import pdf from "../../assets/Dinesh-Resume.pdf";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 

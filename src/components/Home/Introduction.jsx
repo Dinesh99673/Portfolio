@@ -77,7 +77,7 @@ const Introduction = () => {
               </li>
               <li className="md:w-12 md:h-12 w-10 h-10 p-4 bg-fuchsia-100 rounded-full flex justify-center items-center border-2 hover:shadow-md shadow-inner hover:border-purple-700 hover:shadow-violet-500 transition-all duration-500 ease-in-out">
                   <a
-                  href="www.linkedin.com/in/dinesh7821"
+                  href="https://www.linkedin.com/in/dinesh7821/"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
