@@ -5,6 +5,7 @@ import pingPongGame from "../../assets/projects/pingPongGame.png";
 import structify from "../../assets/projects/structify.png";
 import bookCollection from "../../assets/projects/bookCollection.png";
 import indiaMapQuiz from "../../assets/projects/indiaMapQuiz.png";
+import passwordManager from "../../assets/projects/passwordManager.png";
 
 
 const ProjectData = [
@@ -33,6 +34,14 @@ const ProjectData = [
         githubLink: "https://github.com/Dinesh99673/BookCollection_using_appwrite",
         liveLink: "https://book-collection-using-appwrite.vercel.app/",
     },
+    {
+        title: "Password Manager",
+        description:
+        "A user-friendly desktop application to generate, store, and retrieve secure passwords. Built using Python's tkinter for GUI and pyperclip for clipboard functionality. Enhanced with JSON-based storage and search capability.",
+        tech: ["Python", "tKinter", "pyperclip"],
+        image: passwordManager,
+        githubLink: "https://github.com/Dinesh99673/Password_Manager",
+    },    
     {
         title: "ToDo List",
         description:
