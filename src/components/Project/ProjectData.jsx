@@ -59,22 +59,6 @@ const ProjectData = [
         image: indiaMapQuiz,
         githubLink: "https://github.com/Dinesh99673/India_Map_Quiz",
     },    
-    {
-        title: "Classic Snake Game",
-        description:
-        "Implemented a fully functional Snake Game in Python using the Turtle module. Features include dynamic snake growth, boundary and self-collision detection, and a real-time scoring system.",
-        tech: ["Python", "Turtle"],
-        image: snakeGame,
-        githubLink: "https://github.com/Dinesh99673/Snake_Game",
-    },
-    {
-        title: "Ping Pong Game",
-        description:
-        "Implemented a two-player Ping Pong game in Python using the Turtle module. Integrated core game mechanics like paddle collision, ball bounce logic, boundary detection, and score updates.",
-        tech: ["Python", "Turtle"],
-        image: pingPongGame,
-        githubLink: "https://github.com/your-structify-repo",
-    },
 ]
 
 export default ProjectData;
