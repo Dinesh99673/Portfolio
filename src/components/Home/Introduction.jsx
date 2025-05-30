@@ -22,7 +22,7 @@ const Introduction = () => {
                   <br />
                   <br />
                   I am fluent in classics like
-                  <b className="text-purple-500"> C, C++, JavaScript and Java </b>
+                  <b className="text-purple-500"> C, JavaScript, Python and Java </b>
                   <br />
                   <br />
                   My interests span
@@ -31,7 +31,7 @@ const Introduction = () => {
                   <br />
                   <br />
                   I'm always eager to learn and contribute to projects involving
-                  <b className="text-purple-500"> modern frameworks like Spring Boot.</b>
+                  <b className="text-purple-500"> modern frameworks like Express.js, React.js and Spring Boot.</b>
                   <br />
                   <br />
                   Let's build something amazing together!
