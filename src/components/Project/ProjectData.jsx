@@ -1,14 +1,20 @@
 import saath from "../../assets/projects/1Saath.png";
-import snakeGame from "../../assets/projects/snakeGame.png";
 import toDo from "../../assets/projects/todoList.png";
-import pingPongGame from "../../assets/projects/pingPongGame.png";
 import structify from "../../assets/projects/structify.png";
 import bookCollection from "../../assets/projects/bookCollection.png";
 import indiaMapQuiz from "../../assets/projects/indiaMapQuiz.png";
 import passwordManager from "../../assets/projects/passwordManager.png";
-
+import Book_Review from "../../assets/projects/Book-Review.jpeg"
 
 const ProjectData = [
+    {
+        title: "Book Review API",
+        description:
+        "  Built a RESTful API using Node.js and Express to manage books and user reviews. Implemented features like user registration, login with JWT authentication, and CRUD operations for books and reviews using PostgreSQL.",
+        tech: ["Node.js", "Express.js", "PostgreSQL", "REST API"],
+        image: Book_Review,
+        githubLink: "https://github.com/Dinesh99673/Book-Review-API",
+    },    
     {
       title: "1SAATH",
       description:
