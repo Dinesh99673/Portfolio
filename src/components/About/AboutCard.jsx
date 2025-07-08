@@ -12,7 +12,7 @@ const AboutCard = () => {
                 <p className="text-base md:text-lg leading-6 md:leading-7 text-justify">
                     Hi Everyone, My name is <span className="text-purple-500">Dinesh Chaudhari</span> from <span className="text-purple-500">Maharashtra, India.</span>
                     <br />
-                    I recently completed my BSc in Computer Science from Modern College, Shivajinagar, Pune.
+                    I recently completed my B.Sc in Computer Science from Modern College, Shivajinagar, Pune.
                     <br />
                     I’m currently looking for opportunities where I can apply my skills, grow as a developer, and contribute meaningfully to exciting tech projects.
                     <br />

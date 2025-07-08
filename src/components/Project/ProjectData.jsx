@@ -5,8 +5,27 @@ import bookCollection from "../../assets/projects/bookCollection.png";
 import indiaMapQuiz from "../../assets/projects/indiaMapQuiz.png";
 import passwordManager from "../../assets/projects/passwordManager.png";
 import Book_Review from "../../assets/projects/Book-Review.jpeg"
+import schedula from "../../assets/projects/schedula.png";
+import devconnect from "../../assets/projects/devconnect.png";
 
 const ProjectData = [
+    {
+        title: "DevConnect",
+        description:
+        "DevConnect is a full-stack social platform built for developers to connect, share ideas, and collaborate. It features user authentication, post sharing, a following system, and real-time personal and group chat functionality.",
+        tech: ["React.js", "Node.js", "Express.js", "MySQL", "REST API"],
+        image: devconnect,
+        githubLink: "https://github.com/Dinesh99673/DevConnect-Backend",
+    },    
+    {
+        title: "Schedula",
+        description:
+         "A conversational AI agent that can assist users in booking appointments on your Google Calendar. The agent is capable of engaging in a natural, back-and-forth conversation with the user, understanding their intent, checking calendar availability, suggesting suitable time slots, and confirming bookings — all seamlessly through chat. ",
+        tech: ["Python", "FastAPI", "Streamlit", "Google Calendar"],
+        image: schedula,
+        githubLink: "https://github.com/Dinesh99673/Schedula",
+        liveLink: "https://schedulagit-cjppuhitiurwqxfbaswkqq.streamlit.app/",
+    },    
     {
         title: "Book Review API",
         description:
