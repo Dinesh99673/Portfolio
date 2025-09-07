@@ -9,16 +9,14 @@ const AboutCard = () => {
                 <h1 className="text-center text-2xl md:text-4xl mb-4 md:mb-6">
                     Know Who <span className="text-purple-500">I'M</span>
                 </h1>
-                <p className="text-base md:text-lg leading-6 md:leading-7 text-justify">
-                    Hi Everyone, My name is <span className="text-purple-500">Dinesh Chaudhari</span> from <span className="text-purple-500">Maharashtra, India.</span>
-                    <br />
-                    I recently completed my B.Sc in Computer Science from Modern College, Shivajinagar, Pune.
-                    <br />
-                    I’m currently looking for opportunities where I can apply my skills, grow as a developer, and contribute meaningfully to exciting tech projects.
-                    <br />
-                    <br />
-                    Apart from coding, some other activities that I love to do!
-                </p>
+<p className="text-base md:text-lg leading-6 md:leading-7 text-justify">
+    Hello! I'm <span className="text-purple-500">Dinesh Chaudhari</span>, a <span className="text-purple-500">Full Stack Developer</span> currently working at <span className="text-purple-500">Innover Labs, Pune</span>.
+    <br/> I build scalable web applications with React, Node.js, and modern cloud technologies. 
+    <br />With a strong foundation in Computer Science, I am actively seeking new opportunities to tackle more complex challenges and contribute to innovative projects.
+    <br />
+    <br />
+    Apart from coding, some other activities that I love to do!
+</p>
                 <ul className="mt-4 pl-6">
                     <li className="flex items-center">
                         <ImPointRight className="mr-2" /> Watching Anime
