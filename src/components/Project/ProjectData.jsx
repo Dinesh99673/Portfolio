@@ -7,8 +7,18 @@ import passwordManager from "../../assets/projects/passwordManager.png";
 import Book_Review from "../../assets/projects/Book-Review.jpeg"
 import schedula from "../../assets/projects/schedula.png";
 import devconnect from "../../assets/projects/devconnect.png";
+import BioPrintAI from "../../assets/projects/BioPrint-AI.png";
 
 const ProjectData = [
+    {
+        title: "BioPrint-AI",
+        description:
+        "BioPrint AI is a fingerprint-based healthcare system for instant patient identification during emergency. It includes secure OTP access, role-based dashboards, centralized medical records, and blood-donor search by location. The project also features an ML model for blood-group prediction from fingerprints.",
+        tech: ["React.js", "Firebase", "Python", "FastAPI", "R307s Module"],
+        image: BioPrintAI,
+        githubLink: "https://github.com/Dinesh99673/BioPrint-AI",
+        liveLink: "https://bio-print-ai.vercel.app/",
+    },  
     {
         title: "DevConnect",
         description:
