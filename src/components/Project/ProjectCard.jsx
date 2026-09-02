@@ -1,6 +1,6 @@
 import React from "react";
 import { AiFillGithub } from "react-icons/ai";
-import { FiExternalLink } from "react-icons/fi";
+import { FiExternalLink, FiAward } from "react-icons/fi";
 
 const ProjectCard = ({ title, description, tech, image, githubLink, liveLink, award, awardLink, featured }) => {
   return (
@@ -8,15 +8,9 @@ const ProjectCard = ({ title, description, tech, image, githubLink, liveLink, aw
       className="card-enter relative flex flex-col bg-panel border border-seam rounded-md overflow-hidden hover:border-copper/70 transition-colors duration-300 group"
     >
       {award && (
-        <a
-          href={awardLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          title="View certificate"
-          className="absolute top-3 right-3 z-10 font-mono bg-copper text-ink text-xs font-semibold px-2.5 py-1 rounded-sm hover:bg-copper-bright"
-        >
+        <span className="absolute top-3 right-3 z-10 font-mono bg-copper text-ink text-xs font-semibold px-2.5 py-1 rounded-sm">
           🏆 {award}
-        </a>
+        </span>
       )}
 
       <div className="aspect-video overflow-hidden border-b border-seam">
@@ -59,6 +53,16 @@ const ProjectCard = ({ title, description, tech, image, githubLink, liveLink, aw
               className="flex items-center gap-1.5 text-ash hover:text-trace transition-colors"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-trace inline-block" aria-hidden="true" /> Live <FiExternalLink />
+            </a>
+          )}
+          {awardLink && (
+            <a
+              href={awardLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-ash hover:text-copper transition-colors"
+            >
+              <FiAward className="text-base" /> Certificate <FiExternalLink />
             </a>
           )}
         </div>
