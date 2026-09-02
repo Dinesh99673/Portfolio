@@ -4,7 +4,10 @@ import pdf from "../../assets/Dinesh-Resume.pdf";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  "pdfjs-dist/build/pdf.worker.min.mjs",
+  import.meta.url
+).toString();
 
 const Resume = () => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -17,17 +20,17 @@ const Resume = () => {
   }, []);
 
   return (
-    <div className="w-full flex items-center justify-center min-h-screen bg-[#1a061a]">
+    <div className="w-full flex items-center justify-center min-h-screen">
       <div className="mb-14 rounded-lg max-w-[90%] md:max-w-5xl mt-14">
         <div className="mt-14 mb-14 w-full flex items-center justify-center">
-          <button  className="flex items-center justify-center w-[60%] md:w-[30%] h-10 text-sm md:text-xl text-white shadow-inner shadow-purple-950 hover:bg-purple-600 bg-purple-700 rounded-sm">
+          <a href={pdf} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-6 h-11 text-sm md:text-lg font-semibold text-ink bg-copper hover:bg-copper-bright rounded-sm transition-colors">
             <AiOutlineDownload />
-            <a href = {pdf} target = "_blank">&nbsp;Download CV</a>
-          </button>
+            Download CV
+          </a>
         </div>
         {loading && (
           <div className="flex items-center justify-center h-40">
-            <div className="w-12 h-12 border-4 border-purple-500 border-dotted rounded-full animate-spin"></div>
+            <div className="w-12 h-12 border-4 border-copper border-dotted rounded-full animate-spin"></div>
           </div>
         )}
         <Document
@@ -46,10 +49,10 @@ const Resume = () => {
           )}
         </Document>
         <div className="mt-14 mb-3 w-full flex items-center justify-center">
-          <button  className="flex items-center justify-center w-[60%] md:w-[30%] h-10 text-sm md:text-xl text-white shadow-inner shadow-purple-950 hover:bg-purple-600 bg-purple-700 rounded-sm">
+          <a href={pdf} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-6 h-11 text-sm md:text-lg font-semibold text-ink bg-copper hover:bg-copper-bright rounded-sm transition-colors">
             <AiOutlineDownload />
-            <a href = {pdf} target = "_blank">&nbsp;Download CV</a>
-          </button>
+            Download CV
+          </a>
         </div>
       </div>
     </div>

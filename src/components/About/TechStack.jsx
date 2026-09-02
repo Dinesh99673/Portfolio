@@ -14,17 +14,18 @@ import {
 } from "react-icons/si";
 
 const TechStack = () => {
-    const title = ["React", "Typescript","Node.js","Java","C++","JavaScript","PostgreSQL","Database","Pyython","Redis"];
+    const title = ["React", "TypeScript","Node.js","Java","C++","JavaScript","PostgreSQL","Database","Python","Redis"];
     return (
 
-            <div className="flex flex-wrap justify-center gap-8 py-16 md:px-28">
+            <div className="flex flex-wrap gap-4 py-6">
                 {[DiReact, BiLogoTypescript, FaNode, DiJava, CgCPlusPlus, DiJavascript1, SiPostgresql, DiDatabase, DiPython, SiRedis].map((Icon, index) => (
                     <div
                         key={index}
-                        className="w-[150px] md:w-[200px] h-28 px-4 py-3 text-[50px] text-white rounded-md border-2 border-purple-800 flex items-center justify-center transition-transform transform duration-500 hover:scale-110 hover:bg-purple-800 hover:text-purple-300"
+                        className="w-[110px] md:w-[140px] h-24 flex flex-col items-center justify-center gap-1.5 text-[38px] text-bone bg-panel rounded-md border border-seam hover:border-copper hover:text-copper transition-colors duration-300"
                         title={title[index]}
                     >
                         <Icon />
+                        <span className="font-mono text-[10px] text-ash tracking-wider uppercase">{title[index]}</span>
                     </div>
                 ))}
             </div>

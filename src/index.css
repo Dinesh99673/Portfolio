@@ -1,41 +1,123 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        background-color: #111114;
+        /* faint graph-paper grid — the workbench surface */
+        background-image:
+            linear-gradient(rgba(234, 230, 222, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(234, 230, 222, 0.03) 1px, transparent 1px);
+        background-size: 36px 36px;
+        color: #EAE6DE;
+        font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    }
+
+    ::selection {
+        background: rgba(217, 142, 78, 0.35);
+    }
+
+    /* visible keyboard focus, theme-colored */
+    :focus-visible {
+        outline: 2px solid #D98E4E;
+        outline-offset: 2px;
+        border-radius: 2px;
+    }
+}
 
 @layer utilities {
     /* Hide scrollbar for Chrome, Safari and Opera */
     .no-scrollbar::-webkit-scrollbar {
         display: none;
     }
-   /* Hide scrollbar for IE, Edge and Firefox */
+    /* Hide scrollbar for IE, Edge and Firefox */
     .no-scrollbar {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-  }
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
 }
+
 ::-webkit-scrollbar {
-    width: 7px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #2d1950;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: rgba(178, 121, 216, 0.959);
-    border-radius: 12px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(222, 130, 235, 0.911);
-    border-radius: 12px;
-  }
+    width: 8px;
+}
 
+::-webkit-scrollbar-track {
+    background: #111114;
+}
 
+::-webkit-scrollbar-thumb {
+    background: #3a3a42;
+    border-radius: 8px;
+}
 
-  
+::-webkit-scrollbar-thumb:hover {
+    background: #D98E4E;
+}
+
+/* Water-drop impact ring for the portrait reveal. Two rings, the second
+   trailing, so the spread reads as liquid rather than a single pulse. */
+.drop-ripple,
+.drop-ripple::after {
+    position: absolute;
+    border-radius: 9999px;
+    border: 2px solid rgba(237, 173, 114, 0.55);
+    pointer-events: none;
+    opacity: 0;
+}
+
+.drop-ripple {
+    width: 12px;
+    height: 12px;
+    margin: -6px 0 0 -6px;
+}
+
+.drop-ripple::after {
+    content: "";
+    inset: -1px;
+}
+
+.drop-ripple--run {
+    animation: drop-ring 1100ms cubic-bezier(0.37, 0.01, 0.18, 1) forwards;
+}
+
+.drop-ripple--run::after {
+    animation: drop-ring 1100ms cubic-bezier(0.37, 0.01, 0.18, 1) 170ms forwards;
+}
+
+@keyframes drop-ring {
+    0% {
+        opacity: 0.85;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(34);
+    }
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-enter {
+    animation: rise 0.5s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

@@ -1,41 +1,66 @@
 import React from "react";
-
-import AboutPic from "../../assets/About-pic.avif"
-import Type from "./Type";
+import { Link } from "react-router-dom";
+import HoverPortrait from "./HoverPortrait";
 import Introduction from "./Introduction";
-import Particle from "../Particle";
+import certificate from "../../assets/certificates/openai-codex-hackathon-winner.png";
 
 const Home = () => {
-
     return (
-        <div className="flex flex-col z-10 ">
-            <div className="bg-heading-gradient text-white flex flex-col md:flex-row justify-center items-center h-screen w-[100%] px-4 py-8 space-y-10 md:px-12 ">
-                <div className="md:w-1/2 hidden md:block mb-8 md:mb-0 ">
-                    <center>
-                        <img src={AboutPic} alt="Home-Photo" className="shadow-xl shadow-purple-950 rounded-xl w-3/5 h-auto" />
-                    </center>
+        <div className="flex flex-col">
+            <div className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20 px-6 md:px-16 pt-28 pb-16">
+                <div className="max-w-xl">
+                    <p className="font-mono text-copper text-sm md:text-base tracking-[0.2em] uppercase mb-6">
+                        Dinesh Chaudhari · Pune, IN
+                    </p>
+                    <h1 className="text-4xl md:text-6xl font-bold text-bone leading-tight">
+                        I build products from{" "}
+                        <span className="text-copper">firmware</span> to{" "}
+                        <span className="text-copper">frontend</span>.
+                    </h1>
+                    <p className="text-ash text-lg md:text-xl mt-6">
+                        Web apps, AI agents, and ESP32 hardware — designed, built,
+                        and shipped end to end.
+                    </p>
+
+                    <div className="flex flex-wrap gap-3 mt-8">
+                        <a
+                            href={certificate}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="View certificate"
+                            className="font-mono text-xs md:text-sm border border-seam bg-panel text-bone px-3 py-1.5 rounded-sm hover:border-copper transition-colors"
+                        >
+                            🏆 OpenAI Codex Hackathon — Winner
+                        </a>
+                        <a
+                            href="https://probuilder.in/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-mono text-xs md:text-sm border border-seam bg-panel text-bone px-3 py-1.5 rounded-sm hover:border-copper transition-colors"
+                        >
+                            Founder — ProBuilder.in
+                        </a>
+                    </div>
+
+                    <div className="flex flex-wrap gap-4 mt-10">
+                        <Link
+                            to="/Project"
+                            className="bg-copper hover:bg-copper-bright text-ink font-semibold px-6 py-3 rounded-sm transition-colors"
+                        >
+                            View work →
+                        </Link>
+                        <Link
+                            to="/Resume"
+                            className="border border-seam hover:border-copper text-bone font-semibold px-6 py-3 rounded-sm transition-colors"
+                        >
+                            Resume
+                        </Link>
+                    </div>
                 </div>
-                <div className="md:w-1/2 flex justify-center items-center mt-8 md:mt-0">
-                    <center className="md:w-4/5 text-left">
-                        <h1 className="text-3xl md:text-5xl ml-2 mb-5">Hi There!{"  "}
-                            <span className="wave" role="img" aria-labelledby="wave">👋🏻</span>
-                        </h1>
-                        <h1 className="text-3xl md:text-4xl mt-8 ">
-                            I'M {" "}
-                            <strong className="text-[30px] md:text-[50px] text-purple-500">Dinesh Chaudhari</strong>
-                        </h1>
-                        <div className="text-left mt-14 text-2xl md:text-3xl text-purple-500">
-                            <Type />
-                        </div>
-                    </center>
-                </div>
-                <div className="md:hidden mt-14">
-                    <center>
-                        <img src={AboutPic} alt="Home-Photo" className="shadow-xl shadow-purple-950 rounded-xl w-3/4 h-auto" />
-                    </center>
-                </div>
+
+                <HoverPortrait />
             </div>
-            <Introduction/>
+            <Introduction />
         </div>
     );
 }

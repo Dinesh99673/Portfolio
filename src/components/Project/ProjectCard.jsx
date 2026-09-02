@@ -1,59 +1,70 @@
-import React,{useEffect} from "react";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React from "react";
+import { AiFillGithub } from "react-icons/ai";
+import { FiExternalLink } from "react-icons/fi";
 
-const ProjectCard = ({ title, description, tech, image, githubLink, liveLink, award, awardLink }) => {
-  useEffect(() => {
-    AOS.init();
-  }, [])
+const ProjectCard = ({ title, description, tech, image, githubLink, liveLink, award, awardLink, featured }) => {
+  return (
+    <div
+      className="card-enter relative flex flex-col bg-panel border border-seam rounded-md overflow-hidden hover:border-copper/70 transition-colors duration-300 group"
+    >
+      {award && (
+        <a
+          href={awardLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          title="View certificate"
+          className="absolute top-3 right-3 z-10 font-mono bg-copper text-ink text-xs font-semibold px-2.5 py-1 rounded-sm hover:bg-copper-bright"
+        >
+          🏆 {award}
+        </a>
+      )}
 
-    return (
+      <div className="aspect-video overflow-hidden border-b border-seam">
+        <img
+          src={image}
+          alt={`${title} screenshot`}
+          loading="lazy"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+      </div>
 
-      <div className="relative my-1 min-w-30 sm:min-w-50 md:min-w-60  md:max-w-83 h-[550px] bg-[#121212]  rounded-xl overflow-hidden shadow-md shadow-purple-700 border-black hover:scale-105 hover:shadow-lg hover:shadow-purple-500 transition-transform duration-500">
-        {award && (
-          <a
-            href={awardLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            title="View certificate"
-            className="absolute top-3 right-3 z-10 bg-yellow-500/90 text-black text-xs font-semibold px-2 py-1 rounded-full hover:bg-yellow-400"
-          >
-            🏆 {award}
-          </a>
-        )}
-        <img src={image} alt={title} className="w-full h-48 object-center mt-2 mb-1 p-4" />
-        <div className="p-4">
-          <h3 className="text-gray-300 text-2xl text-center font-semibold mb-2">{title}</h3>
-          <p className="text-gray-400 text-md mb-3">{description}</p>
-          <div className="flex flex-wrap gap-2 text-sm text-gray-300 mb-4">
-            {tech.map((item, idx) => (
-              <span key={idx} className="bg-gray-700 px-2 py-1 rounded ">
-                {item}
-              </span>
-            ))} 
-          </div>
-          <div className="flex justify-between">
-            {githubLink && <a
+      <div className="flex flex-col flex-1 p-5">
+        <h3 className={`text-bone font-semibold mb-2 ${featured ? "text-2xl" : "text-xl"}`}>{title}</h3>
+        <p className="text-ash text-sm leading-relaxed mb-4 flex-1">{description}</p>
+
+        <div className="flex flex-wrap gap-2 mb-5">
+          {tech.map((item, idx) => (
+            <span key={idx} className="font-mono text-xs text-bone/80 border border-seam bg-ink px-2 py-1 rounded-sm">
+              {item}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-5 font-mono text-sm">
+          {githubLink && (
+            <a
               href={githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-400 hover:underline text-xl"
+              className="flex items-center gap-1.5 text-ash hover:text-copper transition-colors"
             >
-              GitHub
-            </a>}
-           { liveLink && <a
+              <AiFillGithub className="text-lg" /> GitHub
+            </a>
+          )}
+          {liveLink && (
+            <a
               href={liveLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-400 hover:underline text-xl"
+              className="flex items-center gap-1.5 text-ash hover:text-trace transition-colors"
             >
-              Live
-            </a>}
-          </div>
+              <span className="w-1.5 h-1.5 rounded-full bg-trace inline-block" aria-hidden="true" /> Live <FiExternalLink />
+            </a>
+          )}
         </div>
       </div>
-    );
-  };
-  
-  export default ProjectCard;
-  
+    </div>
+  );
+};
+
+export default ProjectCard;

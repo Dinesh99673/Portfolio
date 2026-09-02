@@ -1,68 +1,59 @@
-import React,{useState} from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
-import {
-    AiOutlineHome,
-    AiOutlineFundProjectionScreen,
-    AiOutlineUser,
-    AiFillStar
-  } from "react-icons/ai";
-  import { CgGitFork } from "react-icons/cg";
-  import { IoMdContact } from "react-icons/io";
-  import { CgFileDocument } from "react-icons/cg";
+import { AiFillGithub } from "react-icons/ai";
 
+const links = [
+    { to: "/", label: "Home" },
+    { to: "/About", label: "About" },
+    { to: "/Project", label: "Projects" },
+    { to: "/Resume", label: "Resume" },
+    { to: "/Contact", label: "Contact" },
+];
 
-const Navbar = () =>{
-
+const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const navigate = useNavigate();
 
     return (
-        <header className="z-50 Header fixed top-0 md:top-3 left-0 right-0 md:w-[80%] h-16 md:h-14 mx-auto md:bg-transparent bg-gray-100 bg-opacity-[0.2] text-white md:rounded-full shadow-sm md:shadow-white flex items-center justify-between px-6">
+        <header className="z-50 fixed top-0 left-0 right-0 h-16 bg-ink/85 backdrop-blur border-b border-seam flex items-center justify-between px-6 md:px-10">
             {/* Logo */}
-            <a className="text-[#7a2fa9] text-4xl font-extrabold font-serif" href="https://dinesh-portfolio-gilt.vercel.app/">DC.</a>
+            <NavLink to="/" className="font-mono text-copper text-xl font-bold tracking-tight" onClick={() => setMenuOpen(false)}>
+                DC<span className="text-ash">.</span>
+            </NavLink>
 
             {/* Desktop Menu */}
-            <nav className="hidden  md:flex space-x-8 text-xl">
-                <button  className=" text-white flex transition relative group" onClick={()=>{navigate("/")}}>
-                <AiOutlineHome className="mr-2 mt-1"/>
-                    Home
-                    <span className="absolute left-0 bottom-0 w-0 h-[3px] rounded-full bg-purple-500 transition-all duration-500 group-hover:w-full"></span>
-                </button>
-                <button  className=" text-white flex transition relative group" onClick={()=>{navigate("/about")}}>
-                    <AiOutlineUser className="mr-2 mt-1"/>
-                    About
-                    <span className="absolute left-0 bottom-0 w-0 h-[3px] rounded-full bg-purple-500 transition-all duration-500 group-hover:w-full"></span>
-                </button>
-                <button  className=" text-white flex transition relative group" onClick={()=>{navigate("/project")}}>
-                    <AiOutlineFundProjectionScreen className="mr-2 mt-1"/>
-                    Projects
-                    <span className="absolute left-0 bottom-0 w-0 h-[3px] rounded-full bg-purple-500 transition-all duration-500 group-hover:w-full"></span>
-                </button>
-                <button  className=" text-white flex transition relative group" onClick={()=>{navigate("/Resume")}}>
-                    <CgFileDocument className="mr-2 mt-1"/>
-                    Resume
-                    <span className="absolute left-0 bottom-0 w-0 h-[3px] rounded-full bg-purple-500 transition-all duration-500 group-hover:w-full"></span>
-                </button>
-                <button  className=" text-white flex transition relative group" onClick={()=>{navigate("/Contact")}}>
-                    <IoMdContact className="mr-2 mt-1"/>
-                    Contact
-                    <span className="absolute left-0 bottom-0 w-0 h-[3px] rounded-full bg-purple-500 transition-all duration-500 group-hover:w-full"></span>
-                </button>
+            <nav className="hidden md:flex items-center space-x-8">
+                {links.map(({ to, label }) => (
+                    <NavLink
+                        key={to}
+                        to={to}
+                        end={to === "/"}
+                        className={({ isActive }) =>
+                            `relative group font-mono text-sm tracking-widest uppercase transition-colors ${
+                                isActive ? "text-copper" : "text-ash hover:text-bone"
+                            }`
+                        }
+                    >
+                        {label}
+                        <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-copper transition-all duration-300 group-hover:w-full"></span>
+                    </NavLink>
+                ))}
                 <a
-                    className=" text-gray-200 bg-purple-900 hover:bg-purple-800 ease-in-out duration-300 hover:scale-105 flex  shadow-sm shadow-purple-700 rounded-[4px] relative group"
-                    href="https://github.com/Dinesh99673/Portfolio"
-                    title="Fork"
+                    className="text-ash hover:text-copper transition-colors text-2xl"
+                    href="https://github.com/Dinesh99673"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="GitHub"
                 >
-                    <CgGitFork className="mr-1 ml-3 mt-1 "/>
-                    <AiFillStar className="mr-3 mt-1"/>
+                    <AiFillGithub />
                 </a>
             </nav>
 
             {/* Mobile Menu Icon */}
             <button
                 aria-label="Toggle Menu"
-                className="md:hidden text-white focus:outline-none"
+                aria-expanded={menuOpen}
+                className="md:hidden text-bone"
                 onClick={() => setMenuOpen(!menuOpen)}
             >
                 {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -70,75 +61,40 @@ const Navbar = () =>{
 
             {/* Mobile Dropdown Menu */}
             <div
-                className={`Header absolute top-0 left-0 w-full mt-16 text-xl text-white md:hidden flex flex-col items-center space-y-4 transition-transform duration-500 ease-in-out${
+                className={`absolute top-16 left-0 w-full bg-ink/95 backdrop-blur border-b border-seam md:hidden flex flex-col items-center gap-6 py-8 transition-all duration-300 ease-in-out ${
                     menuOpen
-                    ? "transform translate-y-0 opacity-100 pointer-events-auto"
-                    : "transform -translate-y-full opacity-0 pointer-events-none"
+                        ? "translate-y-0 opacity-100 pointer-events-auto"
+                        : "-translate-y-4 opacity-0 pointer-events-none"
                 }`}
+            >
+                {links.map(({ to, label }) => (
+                    <NavLink
+                        key={to}
+                        to={to}
+                        end={to === "/"}
+                        className={({ isActive }) =>
+                            `font-mono text-base tracking-widest uppercase ${
+                                isActive ? "text-copper" : "text-ash"
+                            }`
+                        }
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        {label}
+                    </NavLink>
+                ))}
+                <a
+                    className="text-ash text-2xl"
+                    href="https://github.com/Dinesh99673"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="GitHub"
+                    onClick={() => setMenuOpen(false)}
                 >
-                <button
-                    className="flex text-white font-semibold transition mt-5"
-                    onClick={() => {
-                    setMenuOpen(false);
-                    navigate("/");
-                    }}
-                >
-                    <AiOutlineHome className="mr-2 mt-1" />
-                    Home
-                </button>
-                <button
-                    className="flex text-white font-semibold transition mt-5"
-                    onClick={() => {
-                    setMenuOpen(false);
-                    navigate("/about");
-                    }}
-                >
-                    <AiOutlineUser className="mr-2 mt-1" />
-                    About
-                </button>
-                <button
-                    className="flex text-white font-semibold transition"
-                    onClick={() => {
-                    setMenuOpen(false);
-                    navigate("/project");
-                    }}
-                >
-                    <AiOutlineFundProjectionScreen className="mr-2 mt-1" />
-                    Projects
-                </button>
-                <button
-                    className="flex text-white font-semibold"
-                    onClick={() => {
-                    setMenuOpen(false);
-                    navigate("/Resume");
-                    }}
-                >
-                    <CgFileDocument className="mr-2 mt-1" />
-                    Resume
-                </button>
-                <button
-                    className="flex text-white font-semibold transition"
-                    onClick={() => {
-                    setMenuOpen(false);
-                    navigate("/contact");
-                    }}
-                >
-                    <IoMdContact className="mr-2 mt-1" />
-                    Contact
-                </button>
-                <a  
-                    className="h-8 text-gray-200 bg-purple-900 hover:bg-purple-800 ease-in-out duration-300 hover:scale-105 flex rounded-[4px] relative group"
-                    href="https://github.com/Dinesh99673/Portfolio"
-                >
-                    <CgGitFork className="mr-1 ml-3 mt-1 "/>
-                    <AiFillStar className="mr-3 mt-1"/>
+                    <AiFillGithub />
                 </a>
-                <p></p>
             </div>
-
-
         </header>
     );
-}
+};
 
 export default Navbar;

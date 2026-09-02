@@ -7,31 +7,26 @@ export default {
   theme: {
     screens: {
       'xs':'450px',
-      // => @media (min-width: 350px) { ... }
-
       'sm': '40rem',
-      // => @media (min-width: 640px) { ... }
-
       'md': '768px',
-      // => @media (min-width: 768px) { ... }
-
       'lg': '1024px',
-      // => @media (min-width: 1024px) { ... }
-
       'xl': '1280px',
-      // => @media (min-width: 1280px) { ... }
-
       '2xl': '1536px',
     },
     extend: {
       colors: {
-        // 'heading': '#311D2A',
-      },
-      backgroundImage: {
-        'heading-gradient': 'linear-gradient(to bottom left, rgba(49, 13, 13, 0.678), rgba(18, 13, 42, 0.863)), url("./assets/image.png")',
+        ink: '#111114',           // page background — warm charcoal
+        panel: '#18181C',         // cards / raised surfaces
+        seam: '#26262C',          // borders
+        copper: '#D98E4E',        // primary accent
+        'copper-bright': '#EDAD72', // accent hover / links
+        trace: '#8FBF9F',         // sparing secondary — live indicators only
+        bone: '#EAE6DE',          // primary text
+        ash: '#A19B90',           // muted text
       },
       fontFamily: {
-        Nunito: ["Nunito", "sans-serif"],
+        sans: ['"IBM Plex Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'Consolas', 'monospace'],
       },
     },
   },

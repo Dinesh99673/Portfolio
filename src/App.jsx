@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import {
   BrowserRouter as Router,
   Route,
@@ -12,15 +11,11 @@ import About from "./components/About/About.jsx"
 import Resume from './components/Resume/Resume';
 import Project from './components/Project/Projects.jsx';
 import Contact from './components/Contact/Contact.jsx';
-import ParticlesComponent from './components/Particle';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className={`App h-screen `} > 
+    <div className="App min-h-screen">
       <Router>
-        <ParticlesComponent />
         <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -33,7 +28,6 @@ function App() {
         <Footer/>
       </Router>
     </div>
-
   )
 }
 

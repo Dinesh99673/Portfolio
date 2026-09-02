@@ -1,6 +1,6 @@
-import saath from "../../assets/projects/1Saath.png";
+import saath from "../../assets/projects/1Saath.jpg";
 import structify from "../../assets/projects/structify.png";
-import bookCollection from "../../assets/projects/bookCollection.png";
+import bookCollection from "../../assets/projects/bookCollection.jpg";
 import Book_Review from "../../assets/projects/Book-Review.jpeg"
 import schedula from "../../assets/projects/schedula.png";
 import BioPrintAI from "../../assets/projects/BioPrint-AI.png";
@@ -26,6 +26,8 @@ const ProjectData = [
         liveLink: "https://ghostdesk.probuilder.in/",
         award: "Hackathon Winner",
         awardLink: codexCertificate,
+        categories: ["Web", "AI"],
+        featured: true,
     },
     {
         title: "BioPrint-AI",
@@ -35,6 +37,8 @@ const ProjectData = [
         image: BioPrintAI,
         githubLink: "https://github.com/Dinesh99673/BioPrint-AI",
         liveLink: "https://bio-print-ai.vercel.app/",
+        categories: ["Web", "AI", "Embedded"],
+        featured: true,
     },
     {
         title: "Wappr",
@@ -43,6 +47,8 @@ const ProjectData = [
         tech: ["Next.js", "whatsapp-web.js", "Prisma", "SQLite", "Docker"],
         image: wappr,
         githubLink: "https://github.com/Dinesh99673/wappr",
+        categories: ["Web"],
+        featured: true,
     },
     {
         title: "ProBuilder.in",
@@ -52,6 +58,8 @@ const ProjectData = [
         image: probuilder,
         githubLink: "https://github.com/Dinesh99673/ProBuilder",
         liveLink: "https://probuilder.in/",
+        categories: ["Web"],
+        featured: true,
     },
     {
         title: "DSigniteFitness",
@@ -61,6 +69,7 @@ const ProjectData = [
         image: dsignitefitness,
         githubLink: "https://github.com/Dinesh99673/dsignitefitness",
         liveLink: "https://www.dsignitefitness.com/",
+        categories: ["Web"],
     },
     {
         title: "Secure Donations on Blockchain",
@@ -68,6 +77,7 @@ const ProjectData = [
         "A decentralized application for secure, transparent donations on Ethereum. NGOs are verified on-chain before they can accept funds; donors pay through a smart contract that forwards ETH to the NGO and immutably logs every donation, with admin and donor dashboards powered by MetaMask.",
         tech: ["Solidity", "Hardhat", "ethers.js", "React", "MetaMask"],
         image: secureDonations,
+        categories: ["Blockchain", "Web"],
     },
     {
         title: "Schedula",
@@ -77,6 +87,7 @@ const ProjectData = [
         image: schedula,
         githubLink: "https://github.com/Dinesh99673/Schedula",
         liveLink: "https://schedulagit-cjppuhitiurwqxfbaswkqq.streamlit.app/",
+        categories: ["AI"],
     },
     {
         title: "Gesture AI — Air-Writing Recognition",
@@ -84,6 +95,7 @@ const ProjectData = [
         "An air-writing recognition system: a glove mounted with an ESP32 and an MPU-6050 IMU captures hand motion, and an LSTM deep-learning model recognizes letters (A–Z) and digits (0–9) drawn in the air, speaking the result aloud through real-time text-to-speech.",
         tech: ["ESP32", "MPU-6050", "Python", "TensorFlow", "LSTM"],
         image: gestureAI,
+        categories: ["Embedded", "AI"],
     },
     {
         title: "Smart EV Recharge Assistant",
@@ -91,6 +103,7 @@ const ProjectData = [
         "An emergency recharge assistant retrofitted to a 24V electric tricycle. An ESP32 monitors pack voltage and current to estimate state of charge, alerting the rider and latching a power-saving mode when charge runs low. Live telemetry streams over BLE to a Flutter app that finds the nearest charging station and checks it is within remaining range.",
         tech: ["ESP32", "C++", "PlatformIO", "Flutter", "BLE"],
         image: smartEV,
+        categories: ["Embedded"],
     },
     {
         title: "Coin Sorting Machine",
@@ -98,6 +111,7 @@ const ProjectData = [
         "An automatic coin sorting machine for Indian ₹1, ₹2, ₹5 and ₹10 coins. Dual USB cameras image both faces of each coin, a MobileNetV2 classifier identifies the denomination through OpenCV, and an ESP32 drives the stepper, belt and sweeper to drop it into the right bin.",
         tech: ["Python", "OpenCV", "MobileNetV2", "ESP32", "Tkinter"],
         image: coinSorting,
+        categories: ["Embedded", "AI"],
     },
     {
         title: "BMS — Cell Balancing",
@@ -105,6 +119,7 @@ const ProjectData = [
         "A battery management system for a grid-interactive Li-ion standby storage setup: cell balancing and thermal protection for a 4S pack that carries the load when mains fails. A MATLAB simulation covers the dangerous scenarios, validated against a hardware prototype that measures honestly enough to prove the simulation can be trusted.",
         tech: ["MATLAB", "Embedded C", "Li-ion BMS", "Power Electronics"],
         image: cellBalancing,
+        categories: ["Embedded"],
     },
     {
         title: "Book Review API",
@@ -113,6 +128,7 @@ const ProjectData = [
         tech: ["Node.js", "Express.js", "PostgreSQL", "REST API"],
         image: Book_Review,
         githubLink: "https://github.com/Dinesh99673/Book-Review-API",
+        categories: ["Web"],
     },
     {
       title: "1SAATH",
@@ -121,6 +137,7 @@ const ProjectData = [
       tech: ["React", "Spring Boot", "PostgreSQL", "Redis", "Tailwind"],
       image: saath,
       githubLink:"https://github.com/Dinesh99673/Ngo_Backend",
+      categories: ["Web"],
     },
     {
         title: "Structify",
@@ -130,6 +147,7 @@ const ProjectData = [
         image: structify,
         githubLink: "https://github.com/Dinesh99673/Structify",
         liveLink: "https://dinesh99673.github.io/Structify/",
+        categories: ["Web"],
     },
     {
         title: "Book Collection",
@@ -138,6 +156,7 @@ const ProjectData = [
         image: bookCollection,
         githubLink: "https://github.com/Dinesh99673/BookCollection_using_appwrite",
         liveLink: "https://book-collection-using-appwrite.vercel.app/",
+        categories: ["Web"],
     },
 ]
 
