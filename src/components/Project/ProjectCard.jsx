@@ -2,14 +2,25 @@ import React,{useEffect} from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const ProjectCard = ({ title, description, tech, image, githubLink, liveLink }) => {
+const ProjectCard = ({ title, description, tech, image, githubLink, liveLink, award, awardLink }) => {
   useEffect(() => {
     AOS.init();
   }, [])
 
     return (
-        
-      <div className="my-1 min-w-30 sm:min-w-50 md:min-w-60  md:max-w-83 h-[550px] bg-[#121212]  rounded-xl overflow-hidden shadow-md shadow-purple-700 border-black hover:scale-105 hover:shadow-lg hover:shadow-purple-500 transition-transform duration-500">
+
+      <div className="relative my-1 min-w-30 sm:min-w-50 md:min-w-60  md:max-w-83 h-[550px] bg-[#121212]  rounded-xl overflow-hidden shadow-md shadow-purple-700 border-black hover:scale-105 hover:shadow-lg hover:shadow-purple-500 transition-transform duration-500">
+        {award && (
+          <a
+            href={awardLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="View certificate"
+            className="absolute top-3 right-3 z-10 bg-yellow-500/90 text-black text-xs font-semibold px-2 py-1 rounded-full hover:bg-yellow-400"
+          >
+            🏆 {award}
+          </a>
+        )}
         <img src={image} alt={title} className="w-full h-48 object-center mt-2 mb-1 p-4" />
         <div className="p-4">
           <h3 className="text-gray-300 text-2xl text-center font-semibold mb-2">{title}</h3>
@@ -22,14 +33,14 @@ const ProjectCard = ({ title, description, tech, image, githubLink, liveLink }) 
             ))} 
           </div>
           <div className="flex justify-between">
-            <a
+            {githubLink && <a
               href={githubLink}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-400 hover:underline text-xl"
             >
               GitHub
-            </a>
+            </a>}
            { liveLink && <a
               href={liveLink}
               target="_blank"
