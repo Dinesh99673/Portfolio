@@ -95,6 +95,7 @@ const ProjectData = [
         "An air-writing recognition system: a glove mounted with an ESP32 and an MPU-6050 IMU captures hand motion, and an LSTM deep-learning model recognizes letters (A–Z) and digits (0–9) drawn in the air, speaking the result aloud through real-time text-to-speech.",
         tech: ["ESP32", "MPU-6050", "Python", "TensorFlow", "LSTM"],
         image: gestureAI,
+        githubLink: "https://github.com/Dinesh99673/gesture-ai",
         categories: ["Embedded", "AI"],
     },
     {

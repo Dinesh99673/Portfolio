@@ -4,18 +4,37 @@
 
 .pdf-page {
   position: relative;
+  margin: 0 auto;
+}
+
+/* react-pdf positions and scales its own text/annotation layers — overriding
+   their transform knocks selection out of alignment with the canvas. */
+.pdf-page .react-pdf__Page__canvas {
+  z-index: 1;
 }
 
 .pdf-page .react-pdf__Page__textContent {
-  transform: scale(1);
-  transform-origin: top left;
   z-index: 2;
-  pointer-events: none; /* Prevent the text layer from blocking interaction */
 }
 
-.pdf-page .react-pdf__Page__canvas {
-  z-index: 1;
-  pointer-events: auto; /* Ensure interaction works on the canvas */
+/* Link annotations sit above the text layer, or the text layer swallows
+   the clicks meant for them. */
+.pdf-page .react-pdf__Page__annotations {
+  z-index: 3;
+}
+
+.pdf-page .annotationLayer .linkAnnotation > a {
+  border-radius: 2px;
+  transition: background-color 200ms ease, box-shadow 200ms ease;
+}
+
+.pdf-page .annotationLayer .linkAnnotation > a:hover {
+  background-color: rgba(217, 142, 78, 0.22);
+  box-shadow: 0 0 0 2px rgba(217, 142, 78, 0.5);
+}
+
+.pdf-page .react-pdf__Page__textContent ::selection {
+  background: rgba(217, 142, 78, 0.35);
 }
 
 .calendar-container svg,
