@@ -1,83 +1,51 @@
 import React from "react";
 
-import avatar from "../../assets/avatar.svg";
-import Tilt from "react-parallax-tilt";
 import SectionHeading from "../SectionHeading";
-import {
-  AiFillGithub,
-  AiFillInstagram,
-} from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
-import { SiLeetcode } from "react-icons/si";
-
-const socials = [
-  { href: "https://github.com/Dinesh99673", title: "GitHub", Icon: AiFillGithub },
-  { href: "https://leetcode.com/u/dinesh99673/", title: "LeetCode", Icon: SiLeetcode },
-  { href: "https://www.linkedin.com/in/dinesh7821/", title: "LinkedIn", Icon: FaLinkedinIn },
-  { href: "https://www.instagram.com/dineshdchoudhari?igsh=MTg4dWN5aWh1aWw3OA==", title: "Instagram", Icon: AiFillInstagram },
-];
+import StackDiagram from "./StackDiagram";
 
 const Introduction = () => {
   return (
-    <>
-      <div className="border-t border-seam px-6 md:px-16 py-16 md:py-24">
-        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center gap-12">
-          <div className="md:w-3/5 w-full">
-            <SectionHeading label="Introduction" title="Let me introduce myself" />
-            <p className="text-lg text-bone/90 leading-relaxed">
-              I fell in love with programming and I have at least learnt something, I think… 🤷‍♂️
-              <br />
-              <br />
-              I am fluent in classics like
-              <b className="text-copper"> C, JavaScript, Python and Java</b>, and just as
-              comfortable flashing firmware onto an
-              <b className="text-copper"> ESP32</b> as deploying a web app.
-              <br />
-              <br />
-              My work spans
-              <b className="text-copper"> full-stack development</b>,
-              <b className="text-copper"> AI agents</b>, and
-              <b className="text-copper"> embedded systems</b> — building intuitive products
-              that connect software to the physical world.
-              <br />
-              <br />
-              I&apos;m always eager to learn and contribute to projects involving
-              <b className="text-copper"> modern frameworks like Express.js, React.js and Spring Boot.</b>
-              <br />
-              <br />
-              Let&apos;s build something amazing together!
+    <div className="border-t border-seam px-6 md:px-16 py-16 md:py-24">
+      <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center gap-12">
+        <div className="md:w-3/5 w-full">
+          <SectionHeading label="Introduction" title="What I actually build" />
+          <div className="text-lg text-bone/90 leading-relaxed space-y-5">
+            <p>
+              I&apos;m a full-stack developer at{" "}
+              <b className="text-copper">Innover Labs</b> in Pune, and the sole
+              developer on <b className="text-copper">Rabbitship</b> — a
+              multi-courier shipping platform that has been in production since
+              2025 and now serves <b className="text-copper">350+ active users</b>.
+            </p>
+            <p>
+              That one product covers most of what I do. A React and TypeScript app
+              shipped to Android through Capacitor, a 31-screen operations console
+              behind it, and a Node and Firebase backend serving both. Three courier
+              providers sit behind a single booking abstraction, so pricing,
+              serviceability and refunds behave the same no matter who actually
+              carries the parcel. Payments run on Cashfree with signature-verified,
+              idempotent webhooks — a ledger that double-credits once is a ledger
+              nobody trusts again.
+            </p>
+            <p>
+              The rest of my time goes to things that don&apos;t fit in a browser.
+              <b className="text-copper"> GhostDesk</b> holds an entire collaborative
+              workspace in RAM and destroys it thirty seconds after the last person
+              leaves. <b className="text-copper">Gesture-AI</b> is a glove that reads
+              letters you write in mid-air — 6,480 training samples, a stacked LSTM,
+              an ESP32 sampling at 50 Hz.
+            </p>
+            <p>
+              If a problem needs an API, an interface, and something soldered
+              underneath, that&apos;s the kind I like most.
             </p>
           </div>
-          <div className="md:w-2/5 w-3/5 flex justify-center">
-            <Tilt>
-              <img src={avatar} alt="Illustrated developer avatar" className="w-full max-w-sm" />
-            </Tilt>
-          </div>
+        </div>
+        <div className="md:w-2/5 w-full flex justify-center">
+          <StackDiagram />
         </div>
       </div>
-
-      <div className="border-t border-seam px-6 md:px-16 py-16 flex flex-col items-center">
-        <h2 className="text-3xl md:text-4xl font-semibold text-bone">Find me on</h2>
-        <p className="text-ash mt-3">
-          Feel free to <span className="text-copper">connect</span> with me
-        </p>
-        <ul className="flex flex-row mt-8 gap-4 md:gap-6">
-          {socials.map(({ href, title, Icon }) => (
-            <li key={title}>
-              <a
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                title={title}
-                className="w-12 h-12 border border-seam bg-panel text-bone text-2xl rounded-sm flex justify-center items-center hover:border-copper hover:text-copper transition-colors duration-300"
-              >
-                <Icon />
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </>
+    </div>
   );
 };
 

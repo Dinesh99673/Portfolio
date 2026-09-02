@@ -19,12 +19,12 @@ const ProjectData = [
     {
         title: "GhostDesk",
         description:
-        "A privacy-first, disposable collaborative workspace — video calls with live reactions, real-time collaborative notes and code editor, whiteboard, P2P file sharing, and a push-to-talk AI agent. When the last participant leaves, the entire room is permanently destroyed. Winner of the OpenAI Codex Hackathon.",
+        "A zero-persistence collaborative workspace — video calls, chat, CRDT-synced notes and code editor, whiteboard, and peer-to-peer file transfer. Every room lives only in server RAM and is permanently destroyed 30 seconds after the last participant leaves. No signup, no database, no logs. Placed Top 20 at the OpenAI Codex Hackathon.",
         tech: ["React", "Node.js", "Socket.IO", "WebRTC", "Yjs", "OpenAI API"],
         image: ghostdesk,
         githubLink: "https://github.com/Dinesh99673/GhostDesk",
         liveLink: "https://ghostdesk.probuilder.in/",
-        award: "Hackathon Winner",
+        award: "Top 20 Finalist",
         awardLink: codexCertificate,
         categories: ["Web", "AI"],
         featured: true,
@@ -92,7 +92,7 @@ const ProjectData = [
     {
         title: "Gesture AI — Air-Writing Recognition",
         description:
-        "An air-writing recognition system: a glove mounted with an ESP32 and an MPU-6050 IMU captures hand motion, and an LSTM deep-learning model recognizes letters (A–Z) and digits (0–9) drawn in the air, speaking the result aloud through real-time text-to-speech.",
+        "Write a letter in mid-air and hear it read back. A glove-mounted ESP32-C3 and MPU-6050 IMU stream motion at 50 Hz, a stacked LSTM classifies the character, and a desktop GUI assembles words and speaks them aloud. Trained on an original 1,080-sample dataset expanded 6× through augmentation, reaching 100% accuracy across all 36 classes on a held-out test split.",
         tech: ["ESP32", "MPU-6050", "Python", "TensorFlow", "LSTM"],
         image: gestureAI,
         githubLink: "https://github.com/Dinesh99673/gesture-ai",

@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import HoverPortrait from "./HoverPortrait";
 import Introduction from "./Introduction";
+import Experience from "./Experience";
+import Elsewhere from "./Elsewhere";
 import certificate from "../../assets/certificates/openai-codex-hackathon-winner.png";
 
 const Home = () => {
@@ -18,8 +20,9 @@ const Home = () => {
                         <span className="text-copper">frontend</span>.
                     </h1>
                     <p className="text-ash text-lg md:text-xl mt-6">
-                        Web apps, AI agents, and ESP32 hardware — designed, built,
-                        and shipped end to end.
+                        I own products end to end — REST APIs, React apps shipped to
+                        Android, and the firmware underneath. Currently sole developer
+                        on Rabbitship at Innover Labs, live for 350+ users.
                     </p>
 
                     <div className="flex flex-wrap gap-3 mt-8">
@@ -30,7 +33,7 @@ const Home = () => {
                             title="View certificate"
                             className="font-mono text-xs md:text-sm border border-seam bg-panel text-bone px-3 py-1.5 rounded-sm hover:border-copper transition-colors"
                         >
-                            🏆 OpenAI Codex Hackathon — Winner
+                            🏆 Top 20 — OpenAI Codex Hackathon
                         </a>
                         <a
                             href="https://probuilder.in/"
@@ -61,6 +64,8 @@ const Home = () => {
                 <HoverPortrait />
             </div>
             <Introduction />
+            <Experience />
+            <Elsewhere />
         </div>
     );
 }

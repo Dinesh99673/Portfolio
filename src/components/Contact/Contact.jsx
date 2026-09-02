@@ -29,7 +29,11 @@ function Contact() {
   return (
     <section className="py-16 px-6 md:px-16 flex min-h-screen justify-center items-center">
       <div className="w-full max-w-md mt-14">
-        <SectionHeading label="Contact" title="Get in touch" />
+        <SectionHeading
+          label="Contact"
+          title="Get in touch"
+          sub="Hiring, collaborating, or want something built? Tell me what you're working on."
+        />
         <form onSubmit={SendMail} className="bg-panel border border-seam p-6 rounded-md">
           <div className="mb-4">
             <label htmlFor="name" className="block font-mono text-xs tracking-widest uppercase text-ash mb-1.5">

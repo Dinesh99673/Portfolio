@@ -124,51 +124,46 @@ const HoverPortrait = () => {
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <button
-        type="button"
-        ref={frameRef}
-        onPointerEnter={handleEnter}
-        onPointerLeave={handleLeave}
-        onPointerDown={handlePointerDown}
-        onFocus={() => !touchRef.current && fromCenter(true)}
-        onBlur={() => fromCenter(false)}
-        onClick={(e) => e.preventDefault()}
-        aria-label="Reveal the real photo of Dinesh Chaudhari"
-        className="group relative block w-64 md:w-80 aspect-[4/5] border border-seam bg-panel p-2 cursor-pointer"
-      >
-        {/* copper corner ticks — schematic frame */}
-        <span aria-hidden="true" className="absolute -top-px -left-px w-4 h-4 border-t-2 border-l-2 border-copper" />
-        <span aria-hidden="true" className="absolute -top-px -right-px w-4 h-4 border-t-2 border-r-2 border-copper" />
-        <span aria-hidden="true" className="absolute -bottom-px -left-px w-4 h-4 border-b-2 border-l-2 border-copper" />
-        <span aria-hidden="true" className="absolute -bottom-px -right-px w-4 h-4 border-b-2 border-r-2 border-copper" />
+    <button
+      type="button"
+      ref={frameRef}
+      onPointerEnter={handleEnter}
+      onPointerLeave={handleLeave}
+      onPointerDown={handlePointerDown}
+      onFocus={() => !touchRef.current && fromCenter(true)}
+      onBlur={() => fromCenter(false)}
+      onClick={(e) => e.preventDefault()}
+      aria-label="Reveal the real photo of Dinesh Chaudhari"
+      className="group relative block w-64 md:w-80 aspect-[4/5] border border-seam bg-panel p-2 cursor-pointer"
+    >
+      {/* copper corner ticks — schematic frame */}
+      <span aria-hidden="true" className="absolute -top-px -left-px w-4 h-4 border-t-2 border-l-2 border-copper" />
+      <span aria-hidden="true" className="absolute -top-px -right-px w-4 h-4 border-t-2 border-r-2 border-copper" />
+      <span aria-hidden="true" className="absolute -bottom-px -left-px w-4 h-4 border-b-2 border-l-2 border-copper" />
+      <span aria-hidden="true" className="absolute -bottom-px -right-px w-4 h-4 border-b-2 border-r-2 border-copper" />
 
-        <div className="relative w-full h-full overflow-hidden">
+      <div className="relative w-full h-full overflow-hidden">
+        <img
+          src={toon}
+          alt="Cartoon portrait of Dinesh Chaudhari"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div
+          ref={overlayRef}
+          className="absolute inset-0"
+          style={{ clipPath: "circle(0px at 50% 50%)", willChange: "clip-path" }}
+        >
           <img
-            src={toon}
-            alt="Cartoon portrait of Dinesh Chaudhari"
+            ref={photoRef}
+            src={real}
+            alt="Dinesh Chaudhari"
             className="absolute inset-0 w-full h-full object-cover"
+            style={{ transform: "scale(1.05)", willChange: "transform" }}
           />
-          <div
-            ref={overlayRef}
-            className="absolute inset-0"
-            style={{ clipPath: "circle(0px at 50% 50%)", willChange: "clip-path" }}
-          >
-            <img
-              ref={photoRef}
-              src={real}
-              alt="Dinesh Chaudhari"
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{ transform: "scale(1.05)", willChange: "transform" }}
-            />
-          </div>
-          <span ref={rippleRef} className="drop-ripple" aria-hidden="true" />
         </div>
-      </button>
-      <p className="font-mono text-xs text-ash mt-3 tracking-wide" aria-hidden="true">
-        <span className="text-copper">//</span> hover to render the real one
-      </p>
-    </div>
+        <span ref={rippleRef} className="drop-ripple" aria-hidden="true" />
+      </div>
+    </button>
   );
 };
 
