@@ -10,7 +10,7 @@ const Home = () => {
     return (
         <div className="flex flex-col">
             <div className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20 px-6 md:px-16 pt-28 pb-16">
-                <div className="max-w-xl">
+                <div className="max-w-2xl">
                     <p className="font-mono text-copper text-sm md:text-base tracking-[0.2em] uppercase mb-6">
                         Dinesh Chaudhari · Pune, IN
                     </p>
@@ -25,24 +25,20 @@ const Home = () => {
                         on Rabbitship at Innover Labs, live for 350+ users.
                     </p>
 
-                    <div className="flex flex-wrap gap-3 mt-8">
+                    <div className="flex flex-wrap items-stretch gap-3 mt-8">
                         <a
                             href={certificate}
                             target="_blank"
                             rel="noopener noreferrer"
                             title="View certificate"
-                            className="font-mono text-xs md:text-sm border border-seam bg-panel text-bone px-3 py-1.5 rounded-sm hover:border-copper transition-colors"
+                            className="flex items-center font-mono text-xs md:text-sm border border-seam bg-panel text-bone px-3 py-1.5 rounded-sm hover:border-copper transition-colors"
                         >
                             🏆 Top 20 — OpenAI Codex Hackathon
                         </a>
-                        <a
-                            href="https://probuilder.in/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="font-mono text-xs md:text-sm border border-seam bg-panel text-bone px-3 py-1.5 rounded-sm hover:border-copper transition-colors"
-                        >
-                            Founder — ProBuilder.in
-                        </a>
+                        <span className="flex flex-col justify-center font-mono text-xs md:text-sm border border-seam bg-panel text-bone px-3 py-1.5 rounded-sm leading-snug">
+                            Full Stack Developer
+                            <span className="text-ash">Innover Labs</span>
+                        </span>
                     </div>
 
                     <div className="flex flex-wrap gap-4 mt-10">
