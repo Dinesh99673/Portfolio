@@ -1,13 +1,11 @@
 import saath from "../../assets/projects/1Saath.jpg";
 import structify from "../../assets/projects/structify.png";
-import bookCollection from "../../assets/projects/bookCollection.jpg";
-import Book_Review from "../../assets/projects/Book-Review.jpeg"
 import schedula from "../../assets/projects/schedula.png";
 import BioPrintAI from "../../assets/projects/BioPrint-AI.png";
-import ghostdesk from "../../assets/projects/ghostdesk.png";
+import ghostdesk from "../../assets/projects/ghostdesk.jpg";
 import wappr from "../../assets/projects/wappr.png";
 import probuilder from "../../assets/projects/probuilder.png";
-import dsignitefitness from "../../assets/projects/dsignitefitness.png";
+import dsignitefitness from "../../assets/projects/dsignitefitness.jpg";
 import secureDonations from "../../assets/projects/secureDonations.png";
 import gestureAI from "../../assets/projects/gestureAI.png";
 import smartEV from "../../assets/projects/smartEV.png";
@@ -19,34 +17,24 @@ const ProjectData = [
     {
         title: "GhostDesk",
         description:
-        "A zero-persistence collaborative workspace — video calls, chat, CRDT-synced notes and code editor, whiteboard, and peer-to-peer file transfer. Every room lives only in server RAM and is permanently destroyed 30 seconds after the last participant leaves. No signup, no database, no logs. Placed Top 20 at the OpenAI Codex Hackathon.",
+        "A zero-persistence collaborative workspace — video calls, chat, CRDT-synced notes and code editor, whiteboard, and peer-to-peer file transfer. Every room lives only in server RAM and is permanently destroyed 30 seconds after the last participant leaves. No signup, no database, no logs. Ranked 14th among 3,000 teams at the OpenAI Codex Hackathon.",
         tech: ["React", "Node.js", "Socket.IO", "WebRTC", "Yjs", "OpenAI API"],
         image: ghostdesk,
         githubLink: "https://github.com/Dinesh99673/GhostDesk",
         liveLink: "https://ghostdesk.probuilder.in/",
-        award: "Top 20 Finalist",
+        award: "Ranked 14th of 3,000 Teams",
         awardLink: codexCertificate,
         categories: ["Web", "AI"],
         featured: true,
     },
     {
-        title: "BioPrint-AI",
+        title: "DSigniteFitness",
         description:
-        "BioPrint AI is a fingerprint-based healthcare system for instant patient identification during emergency. It includes secure OTP access, role-based dashboards, centralized medical records, and blood-donor search by location. The project also features an ML model for blood-group prediction from fingerprints.",
-        tech: ["React.js", "Firebase", "Python", "FastAPI", "R307s Module"],
-        image: BioPrintAI,
-        githubLink: "https://github.com/Dinesh99673/BioPrint-AI",
-        liveLink: "https://bio-print-ai.vercel.app/",
-        categories: ["Web", "AI", "Embedded"],
-        featured: true,
-    },
-    {
-        title: "Wappr",
-        description:
-        "A self-hosted WhatsApp bulk messaging dashboard. Log in with your own WhatsApp by scanning a QR code, then send single or bulk messages — text and media — to any list of contacts from a clean dashboard. No external services required, with Docker support for one-command deployment.",
-        tech: ["Next.js", "whatsapp-web.js", "Prisma", "SQLite", "Docker"],
-        image: wappr,
-        githubLink: "https://github.com/Dinesh99673/wappr",
+        "A production marketing website built for DSigniteFitness, a premium gym brand. Designed from the gym's real photography with a custom design system, scroll animations, a photo gallery, and a prerendered build for fast loads and SEO.",
+        tech: ["React", "TypeScript", "Vite", "Tailwind", "shadcn/ui"],
+        image: dsignitefitness,
+        githubLink: "https://github.com/Dinesh99673/dsignitefitness",
+        liveLink: "https://www.dsignitefitness.com/",
         categories: ["Web"],
         featured: true,
     },
@@ -62,14 +50,24 @@ const ProjectData = [
         featured: true,
     },
     {
-        title: "DSigniteFitness",
+        title: "Wappr",
         description:
-        "A production marketing website built for DSigniteFitness, a premium gym brand. Designed from the gym's real photography with a custom design system, scroll animations, a photo gallery, and a prerendered build for fast loads and SEO.",
-        tech: ["React", "TypeScript", "Vite", "Tailwind", "shadcn/ui"],
-        image: dsignitefitness,
-        githubLink: "https://github.com/Dinesh99673/dsignitefitness",
-        liveLink: "https://www.dsignitefitness.com/",
+        "A self-hosted WhatsApp bulk messaging dashboard. Log in with your own WhatsApp by scanning a QR code, then send single or bulk messages — text and media — to any list of contacts from a clean dashboard. No external services required, with Docker support for one-command deployment.",
+        tech: ["Next.js", "whatsapp-web.js", "Prisma", "SQLite", "Docker"],
+        image: wappr,
+        githubLink: "https://github.com/Dinesh99673/wappr",
         categories: ["Web"],
+        featured: true,
+    },
+    {
+        title: "BioPrint-AI",
+        description:
+        "BioPrint AI is a fingerprint-based healthcare system for instant patient identification during emergency. It includes secure OTP access, role-based dashboards, centralized medical records, and blood-donor search by location. The project also features an ML model for blood-group prediction from fingerprints.",
+        tech: ["React.js", "Firebase", "Python", "FastAPI", "R307s Module"],
+        image: BioPrintAI,
+        githubLink: "https://github.com/Dinesh99673/BioPrint-AI",
+        liveLink: "https://bio-print-ai.vercel.app/",
+        categories: ["Web", "AI", "Embedded"],
     },
     {
         title: "Secure Donations on Blockchain",
@@ -123,15 +121,6 @@ const ProjectData = [
         categories: ["Embedded"],
     },
     {
-        title: "Book Review API",
-        description:
-        "  Built a RESTful API using Node.js and Express to manage books and user reviews. Implemented features like user registration, login with JWT authentication, and CRUD operations for books and reviews using PostgreSQL.",
-        tech: ["Node.js", "Express.js", "PostgreSQL", "REST API"],
-        image: Book_Review,
-        githubLink: "https://github.com/Dinesh99673/Book-Review-API",
-        categories: ["Web"],
-    },
-    {
       title: "1SAATH",
       description:
         "A full-stack web platform where NGOs can register, manage events, and receive donations. Integrated secure payment gateways and NGO-to-NGO Donation features to promote visibility and funding for rural NGOs.",
@@ -148,15 +137,6 @@ const ProjectData = [
         image: structify,
         githubLink: "https://github.com/Dinesh99673/Structify",
         liveLink: "https://dinesh99673.github.io/Structify/",
-        categories: ["Web"],
-    },
-    {
-        title: "Book Collection",
-        description:"Developed a web application to help users track books they've read using React and Appwrite. Features include user authentication, book listing, and simple CRUD operations for managing personal reading history. Used open Library API for getting Book information",
-        tech: ["React", "Tailwind", "Appwrite", "Open Library API"],
-        image: bookCollection,
-        githubLink: "https://github.com/Dinesh99673/BookCollection_using_appwrite",
-        liveLink: "https://book-collection-using-appwrite.vercel.app/",
         categories: ["Web"],
     },
 ]

@@ -1,7 +1,7 @@
 import React from "react";
 
 const achievements = [
-  { label: "OpenAI Codex Hackathon", detail: "14th place, Top 20 — OpenAI × NamasteDev", year: "2026" },
+  { label: "OpenAI Codex Hackathon", detail: "Ranked 14th among 3,000 teams — OpenAI × NamasteDev", year: "2026" },
   { label: "MHT MCA CET", detail: "99.11 percentile", year: "2025" },
   { label: "NPTEL Data Structures & Algorithms", detail: "Top 1% — Elite + Silver, 85%", year: "2025" },
   { label: "Kartikeya Rindhani Memorial Coding Competition", detail: "2nd place", year: "2025" },

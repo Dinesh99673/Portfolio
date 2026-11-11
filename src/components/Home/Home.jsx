@@ -22,7 +22,7 @@ const Home = () => {
                     <p className="text-ash text-lg md:text-xl mt-6">
                         I own products end to end — REST APIs, React apps shipped to
                         Android, and the firmware underneath. Currently sole developer
-                        on Rabbitship at Innover Labs, live for 350+ users.
+                        on Rabbitship at Innover Labs, live for 1,000+ users.
                     </p>
 
                     <div className="flex flex-wrap items-stretch gap-3 mt-8">
@@ -33,7 +33,7 @@ const Home = () => {
                             title="View certificate"
                             className="flex items-center font-mono text-xs md:text-sm border border-seam bg-panel text-bone px-3 py-1.5 rounded-sm hover:border-copper transition-colors"
                         >
-                            🏆 Top 20 — OpenAI Codex Hackathon
+                            🏆 Ranked 14th of 3,000 teams — OpenAI Codex Hackathon
                         </a>
                         <span className="flex flex-col justify-center font-mono text-xs md:text-sm border border-seam bg-panel text-bone px-3 py-1.5 rounded-sm leading-snug">
                             Full Stack Developer

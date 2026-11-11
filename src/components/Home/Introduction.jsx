@@ -15,7 +15,7 @@ const Introduction = () => {
               <b className="text-copper">Innover Labs</b> in Pune, and the sole
               developer on <b className="text-copper">Rabbitship</b> — a
               multi-courier shipping platform that has been in production since
-              2025 and now serves <b className="text-copper">350+ active users</b>.
+              early 2026 and now serves <b className="text-copper">1,000+ users</b>.
             </p>
             <p>
               That one product covers most of what I do. A React and TypeScript app

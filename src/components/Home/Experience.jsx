@@ -52,7 +52,7 @@ const Experience = () => {
               </a>{" "}
               — production multi-courier shipping and logistics platform
             </p>
-            <p className="font-mono text-xs text-ash mb-6">350+ active users</p>
+            <p className="font-mono text-xs text-ash mb-6">1,000+ users · in production since early 2026</p>
 
             <ul className="space-y-3">
               {highlights.map((item) => (

@@ -17,7 +17,7 @@
 
 ### 🧑‍💻 About me
 
-- 💼 **Full-Stack Developer at [Innover Labs](https://rabbitship.in/)**, Pune. I'm the sole developer of **[Rabbitship](https://rabbitship.in/)**, a multi-courier shipping platform with 350+ active users.
+- 💼 **Full-Stack Developer at [Innover Labs](https://rabbitship.in/)**, Pune. I'm the sole developer of **[Rabbitship](https://rabbitship.in/)**, a multi-courier shipping platform in production since early 2026, now with 1,000+ users.
 - 🎓 Doing my **MCA at Manipal University Jaipur**. Before that, B.Sc. Computer Science (GPA 9.8/10).
 - 🛠️ I run **[ProBuilder](https://probuilder.in/)**, helping engineering students take academic projects from idea to delivery.
 - 🔌 I came to the web from the hardware side, so I also build with **ESP32 and Arduino**.
@@ -31,7 +31,7 @@
 
 | | |
 |---|---|
-| 🥇 **OpenAI Codex Hackathon** | 14th place, Top 20 (OpenAI × NamasteDev), 2026 |
+| 🥇 **OpenAI Codex Hackathon** | Ranked 14th among 3,000 teams (OpenAI × NamasteDev), 2026 |
 | 📈 **MHT MCA CET** | 99.11 percentile, 2025 |
 | 🎖️ **NPTEL Data Structures & Algorithms** | Top 1%, Elite + Silver, 2025 |
 | 💻 **Kartikeya Rindhani Memorial Coding Competition** | 2nd place, 2025 |
@@ -42,7 +42,7 @@
 
 | Project | What it does | Stack |
 |---|---|---|
-| **[GhostDesk](https://github.com/Dinesh99673/GhostDesk)** · [live](https://ghostdesk.probuilder.in/) | Zero-persistence collaborative workspace: video calls, chat, CRDT-synced notes and code editor, whiteboard, P2P file transfer. Rooms live only in RAM and are destroyed 30s after everyone leaves. **Top 20 at the OpenAI Codex Hackathon.** | React, Node.js, Socket.IO, WebRTC, Yjs |
+| **[GhostDesk](https://github.com/Dinesh99673/GhostDesk)** · [live](https://ghostdesk.probuilder.in/) | Zero-persistence collaborative workspace: video calls, chat, CRDT-synced notes and code editor, whiteboard, P2P file transfer. Rooms live only in RAM and are destroyed 30s after everyone leaves. **Ranked 14th among 3,000 teams at the OpenAI Codex Hackathon.** | React, Node.js, Socket.IO, WebRTC, Yjs |
 | **[BioPrint-AI](https://github.com/Dinesh99673/BioPrint-AI)** · [live](https://bio-print-ai.vercel.app/) | Fingerprint-based patient identification for emergencies, with centralized medical records, blood-donor search, and an ML model that predicts blood group from fingerprints. | React, Firebase, Python, FastAPI |
 | **[Wappr](https://github.com/Dinesh99673/wappr)** | Self-hosted WhatsApp dashboard for single and bulk messaging, media sharing and scheduled campaigns. One-command Docker deployment. | Next.js, Prisma, SQLite, Docker |
 | **[Gesture AI](https://github.com/Dinesh99673/gesture-ai)** | Write a letter in mid-air and hear it read back. Glove-mounted ESP32 + IMU streams motion to a stacked LSTM with 100% test accuracy across 36 classes. | ESP32, Python, TensorFlow |
