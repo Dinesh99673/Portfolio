@@ -30,10 +30,11 @@ const AboutCard = () => {
                         constraint usually turns out to be the design.
                     </p>
                     <p>
-                        I also run <span className="text-copper">ProBuilder</span>, helping
-                        engineering students take academic projects from idea to delivery —
-                        mostly because I remember how little help there was when I was
-                        doing mine.
+                        I'm also the lead developer at{" "}
+                        <span className="text-copper">ProBuilder</span>, a Udyam-registered
+                        software studio in Pune that builds websites, mobile apps and
+                        business software for small businesses — from the first call to
+                        launch and the support after it.
                     </p>
                 </div>
                 <p className="mt-8 font-mono text-sm text-ash tracking-widest uppercase">

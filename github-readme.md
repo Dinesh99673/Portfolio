@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://dinesh.probuilder.in">
-    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=20&duration=3000&pause=800&color=EDAD72&center=true&vCenter=true&width=600&lines=Full-Stack+Developer+%40+Innover+Labs;MCA+%40+Manipal+University+Jaipur;I+build+real-time+apps%2C+AI+tools+%26+embedded+systems" alt="Typing intro" />
+    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=20&duration=3000&pause=800&color=EDAD72&center=true&vCenter=true&width=600&lines=Full-Stack+Developer+%40+Innover+Labs;Lead+Developer+%40+ProBuilder;MCA+%40+Manipal+University+Jaipur;I+build+real-time+apps%2C+AI+tools+%26+embedded+systems" alt="Typing intro" />
   </a>
 </p>
 
@@ -19,7 +19,7 @@
 
 - 💼 **Full-Stack Developer at [Innover Labs](https://rabbitship.in/)**, Pune. I'm the sole developer of **[Rabbitship](https://rabbitship.in/)**, a multi-courier shipping platform in production since early 2026, now with 1,000+ users.
 - 🎓 Doing my **MCA at Manipal University Jaipur**. Before that, B.Sc. Computer Science (GPA 9.8/10).
-- 🛠️ I run **[ProBuilder](https://probuilder.in/)**, helping engineering students take academic projects from idea to delivery.
+- 🛠️ **Lead Developer at [ProBuilder](https://probuilder.in/)**, a Udyam-registered software studio in Pune building websites, mobile apps, business software and AI automation for small businesses.
 - 🔌 I came to the web from the hardware side, so I also build with **ESP32 and Arduino**.
 - 🌱 Away from the keyboard: anime, travel, reading, and learning Japanese (N5).
 
@@ -43,10 +43,11 @@
 | Project | What it does | Stack |
 |---|---|---|
 | **[GhostDesk](https://github.com/Dinesh99673/GhostDesk)** · [live](https://ghostdesk.probuilder.in/) | Zero-persistence collaborative workspace: video calls, chat, CRDT-synced notes and code editor, whiteboard, P2P file transfer. Rooms live only in RAM and are destroyed 30s after everyone leaves. **Ranked 14th among 3,000 teams at the OpenAI Codex Hackathon.** | React, Node.js, Socket.IO, WebRTC, Yjs |
-| **[BioPrint-AI](https://github.com/Dinesh99673/BioPrint-AI)** · [live](https://bio-print-ai.vercel.app/) | Fingerprint-based patient identification for emergencies, with centralized medical records, blood-donor search, and an ML model that predicts blood group from fingerprints. | React, Firebase, Python, FastAPI |
+| **DSigniteFitness** · [live](https://www.dsignitefitness.com/) | Client project via ProBuilder: website and staff portal for a premium gym in Hyderabad. 14 SEO-focused pages, plus admin, trainer and front-desk logins to publish offers, manage leads (email alerts, Excel export), edit coach profiles and post jobs. | React, TypeScript, Firebase |
+| **[ProBuilder.in](https://github.com/Dinesh99673/ProBuilder)** · [live](https://probuilder.in/) | Website for the ProBuilder software studio: services, package pricing, case studies, and clickable demo sites for a clinic, a coaching class and a restaurant. Prerendered routes with per-page SEO, light and dark themes. | React, TypeScript, GSAP, Framer Motion |
 | **[Wappr](https://github.com/Dinesh99673/wappr)** | Self-hosted WhatsApp dashboard for single and bulk messaging, media sharing and scheduled campaigns. One-command Docker deployment. | Next.js, Prisma, SQLite, Docker |
+| **[BioPrint-AI](https://github.com/Dinesh99673/BioPrint-AI)** · [live](https://bio-print-ai.vercel.app/) | Fingerprint-based patient identification for emergencies, with centralized medical records, blood-donor search, and an ML model that predicts blood group from fingerprints. | React, Firebase, Python, FastAPI |
 | **[Gesture AI](https://github.com/Dinesh99673/gesture-ai)** | Write a letter in mid-air and hear it read back. Glove-mounted ESP32 + IMU streams motion to a stacked LSTM with 100% test accuracy across 36 classes. | ESP32, Python, TensorFlow |
-| **[Structify](https://github.com/Dinesh99673/Structify)** · [live](https://dinesh99673.github.io/Structify/) | Learn data structures through interactive visualizations and in-browser code execution. | React, Tailwind, Piston API |
 
 👉 More on my [portfolio](https://dinesh.probuilder.in/Project).
 

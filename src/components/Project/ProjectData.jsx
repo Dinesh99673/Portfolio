@@ -30,8 +30,8 @@ const ProjectData = [
     {
         title: "DSigniteFitness",
         description:
-        "A production marketing website built for DSigniteFitness, a premium gym brand. Designed from the gym's real photography with a custom design system, scroll animations, a photo gallery, and a prerendered build for fast loads and SEO.",
-        tech: ["React", "TypeScript", "Vite", "Tailwind", "shadcn/ui"],
+        "A production website and staff portal for DSigniteFitness, a premium gym in Hyderabad, delivered through ProBuilder. 14 prerendered pages built to rank for local searches, plus a private portal with separate admin, trainer and front-desk logins: staff publish limited-time offers with a live countdown, track every enquiry in one leads dashboard with email alerts and Excel export, edit coach profiles, and post job openings.",
+        tech: ["React", "TypeScript", "Tailwind", "Firebase", "Cloud Functions"],
         image: dsignitefitness,
         githubLink: "https://github.com/Dinesh99673/dsignitefitness",
         liveLink: "https://www.dsignitefitness.com/",
@@ -41,8 +41,8 @@ const ProjectData = [
     {
         title: "ProBuilder.in",
         description:
-        "The official website of ProBuilder, my own venture helping engineering students build complete academic projects from idea to delivery. A cyberpunk-themed, animation-rich site with 3D visuals, smooth scrolling, and an owl mentor that guides visitors section by section as they scroll.",
-        tech: ["React", "TypeScript", "Three.js", "GSAP", "Framer Motion"],
+        "The website of ProBuilder, a Udyam-registered software studio in Pune where I'm the lead developer, selling websites, mobile apps, business software and AI automation to small businesses. Alongside services, transparent package pricing and client case studies, it hosts working demo sites (a dental clinic, a coaching class and a restaurant) that prospects can click through to book, take a test or place an order. Every route is prerendered with its own SEO metadata, with light and dark themes and enquiries logged to Google Sheets.",
+        tech: ["React", "TypeScript", "Tailwind", "GSAP", "Framer Motion"],
         image: probuilder,
         githubLink: "https://github.com/Dinesh99673/ProBuilder",
         liveLink: "https://probuilder.in/",
