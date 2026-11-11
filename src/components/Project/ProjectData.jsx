@@ -4,7 +4,7 @@ import schedula from "../../assets/projects/schedula.png";
 import BioPrintAI from "../../assets/projects/BioPrint-AI.png";
 import ghostdesk from "../../assets/projects/ghostdesk.jpg";
 import wappr from "../../assets/projects/wappr.png";
-import probuilder from "../../assets/projects/probuilder.png";
+import probuilder from "../../assets/projects/probuilder.jpg";
 import dsignitefitness from "../../assets/projects/dsignitefitness.jpg";
 import secureDonations from "../../assets/projects/secureDonations.png";
 import gestureAI from "../../assets/projects/gestureAI.png";
