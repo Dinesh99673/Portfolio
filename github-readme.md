@@ -20,7 +20,7 @@
 - 💼 **Full-Stack Developer at [Innover Labs](https://rabbitship.in/)**, Pune. I'm the sole developer of **[Rabbitship](https://rabbitship.in/)**, a multi-courier shipping platform in production since early 2026, now with 1,000+ users.
 - 🎓 Doing my **MCA at Manipal University Jaipur**. Before that, B.Sc. Computer Science (GPA 9.8/10).
 - 🛠️ **Lead Developer at [ProBuilder](https://probuilder.in/)**, a Udyam-registered software studio in Pune building websites, mobile apps, business software and AI automation for small businesses.
-- 🔌 I came to the web from the hardware side, so I also build with **ESP32 and Arduino**.
+- 🔌 Web developer first, but I picked up hardware along the way, so I also build with **ESP32 and Arduino**.
 - 🌱 Away from the keyboard: anime, travel, reading, and learning Japanese (N5).
 
 > *I'd rather ship one thing that holds up than three that demo well.*

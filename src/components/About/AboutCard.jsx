@@ -21,13 +21,13 @@ const AboutCard = () => {
                         MCA at Manipal.
                     </p>
                     <p>
-                        I came to the web from the hardware side, and I still think that
-                        way: find the constraint first, then build the smallest thing that
-                        satisfies it. GhostDesk had to fit in 512 MB, so rooms live in
-                        memory with hard caps and automatic trimming. Rabbitship had to
-                        ship updates without a Play Store release, so it got its own OTA
-                        pipeline gated by a minimum-supported-version policy. The
-                        constraint usually turns out to be the design.
+                        I like working on problems that don&apos;t have straightforward
+                        answers. From experimenting with hardware and embedded systems to
+                        building full-stack applications and backend infrastructure,
+                        I&apos;ve always enjoyed understanding how things work under the hood.
+                        I believe the best solutions come from understanding the problem
+                        deeply, making thoughtful engineering decisions, and building things
+                        that actually hold up in the real world.
                     </p>
                     <p>
                         I'm also the lead developer at{" "}
