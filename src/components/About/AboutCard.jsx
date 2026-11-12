@@ -1,4 +1,4 @@
-import AboutMe from "../../assets/about.png";
+import AboutMe from "../../assets/about.jpg";
 import { ImPointRight } from "react-icons/im";
 import SectionHeading from "../SectionHeading";
 
@@ -55,8 +55,12 @@ const AboutCard = () => {
             <div className="flex justify-center items-center md:w-2/5 w-full">
                 <img
                     src={AboutMe}
-                    alt="About Me"
-                    className="border border-seam rounded-md w-full max-w-md h-auto"
+                    alt="Illustration of a developer coding at a desk"
+                    className="w-full h-auto mix-blend-lighten pointer-events-none md:scale-[1.35] lg:scale-150"
+                    style={{
+                        WebkitMaskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, #000 55%, transparent 100%)",
+                        maskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, #000 55%, transparent 100%)",
+                    }}
                 />
             </div>
         </div>
