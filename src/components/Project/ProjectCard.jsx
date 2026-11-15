@@ -1,8 +1,8 @@
 import React from "react";
 import { AiFillGithub } from "react-icons/ai";
-import { FiExternalLink, FiAward } from "react-icons/fi";
+import { FiExternalLink, FiAward, FiYoutube } from "react-icons/fi";
 
-const ProjectCard = ({ title, description, tech, image, githubLink, liveLink, award, awardLink, featured }) => {
+const ProjectCard = ({ title, description, tech, image, githubLink, liveLink, award, awardLink, videoId, featured }) => {
   return (
     <div
       className="card-enter relative flex flex-col bg-panel border border-seam rounded-md overflow-hidden hover:border-copper/70 transition-colors duration-300 group"
@@ -13,13 +13,24 @@ const ProjectCard = ({ title, description, tech, image, githubLink, liveLink, aw
         </span>
       )}
 
-      <div className="aspect-video overflow-hidden border-b border-seam">
-        <img
-          src={image}
-          alt={`${title} screenshot`}
-          loading="lazy"
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-        />
+      <div className="relative aspect-video overflow-hidden border-b border-seam bg-ink">
+        {videoId ? (
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${videoId}?playsinline=1&rel=0`}
+            title={`${title} demo video`}
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full"
+          />
+        ) : (
+          <img
+            src={image}
+            alt={`${title} screenshot`}
+            loading="lazy"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        )}
       </div>
 
       <div className="flex flex-col flex-1 p-5">
@@ -53,6 +64,16 @@ const ProjectCard = ({ title, description, tech, image, githubLink, liveLink, aw
               className="flex items-center gap-1.5 text-ash hover:text-trace transition-colors"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-trace inline-block" aria-hidden="true" /> Live <FiExternalLink />
+            </a>
+          )}
+          {videoId && (
+            <a
+              href={`https://www.youtube.com/watch?v=${videoId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-ash hover:text-copper transition-colors"
+            >
+              <FiYoutube className="text-base" /> Demo <FiExternalLink />
             </a>
           )}
           {awardLink && (

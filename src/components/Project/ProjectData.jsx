@@ -93,6 +93,7 @@ const ProjectData = [
         "Write a letter in mid-air and hear it read back. A glove-mounted ESP32-C3 and MPU-6050 IMU stream motion at 50 Hz, a stacked LSTM classifies the character, and a desktop GUI assembles words and speaks them aloud. Trained on an original 1,080-sample dataset expanded 6× through augmentation, reaching 100% accuracy across all 36 classes on a held-out test split.",
         tech: ["ESP32", "MPU-6050", "Python", "TensorFlow", "LSTM"],
         image: gestureAI,
+        videoId: "oSaMwlegaV0",
         githubLink: "https://github.com/Dinesh99673/gesture-ai",
         categories: ["Embedded", "AI"],
     },
@@ -102,6 +103,7 @@ const ProjectData = [
         "An emergency recharge assistant retrofitted to a 24V electric tricycle. An ESP32 monitors pack voltage and current to estimate state of charge, alerting the rider and latching a power-saving mode when charge runs low. Live telemetry streams over BLE to a Flutter app that finds the nearest charging station and checks it is within remaining range.",
         tech: ["ESP32", "C++", "PlatformIO", "Flutter", "BLE"],
         image: smartEV,
+        videoId: "glxBEDnOkyY",
         categories: ["Embedded"],
     },
     {
