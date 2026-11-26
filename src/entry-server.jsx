@@ -11,7 +11,7 @@ import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
 import { AppShell } from "./App.jsx";
 
-export { routes, canonicalFor, OG_IMAGE } from "./routes.jsx";
+export { routes, headTagsFor, SITE_URL } from "./routes.jsx";
 
 export function render(url) {
   return renderToString(

@@ -18,7 +18,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const distDir = path.join(root, "dist");
 const serverEntry = path.join(root, "dist-ssr", "entry-server.js");
 
-const { render, routes, canonicalFor } = await import(pathToFileURL(serverEntry).href);
+const { render, routes, headTagsFor, SITE_URL } = await import(pathToFileURL(serverEntry).href);
 const template = fs.readFileSync(path.join(distDir, "index.html"), "utf-8");
 
 // Vercel only serves dist/About.html at /About if vercel.json rewrites it
@@ -48,15 +48,20 @@ const replaceOnce = (html, pattern, replacement, label, file) => {
   return html.replace(pattern, replacement);
 };
 
-const metaTag = (attr, key) => new RegExp(`<meta ${attr}="${key}" content="[^"]*"\\s*/?>`);
+const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const metaTag = (attr, key) => new RegExp(`<meta ${attr}="${escapeRe(key)}" content="[^"]*"\\s*/?>`);
 
 for (const route of routes) {
-  const { title, description, ogDescription } = route.meta;
-  const url = canonicalFor(route);
+  const head = headTagsFor(route);
   const appHtml = render(route.path);
 
   if (!appHtml || appHtml.length < 500) {
     throw new Error(`[prerender] ${route.path}: rendered HTML is suspiciously small (${appHtml.length} chars)`);
+  }
+  // Canonical must be self-referencing, HTTPS and on the preferred host.
+  const expected = route.path === "/" ? `${SITE_URL}/` : `${SITE_URL}${route.path}`;
+  if (head.canonical !== expected || !head.canonical.startsWith("https://dinesh.probuilder.in/")) {
+    throw new Error(`[prerender] ${route.path}: unexpected canonical ${head.canonical}`);
   }
 
   let html = template;
@@ -64,16 +69,12 @@ for (const route of routes) {
     html = replaceOnce(html, pattern, replacement, label, route.file);
   };
 
-  r(/<title>[^<]*<\/title>/, `<title>${escapeText(title)}</title>`, "title");
-  r(metaTag("name", "description"), `<meta name="description" content="${escapeAttr(description)}" />`, "meta description");
-  r(/<link rel="canonical" href="[^"]*"\s*\/?>/, `<link rel="canonical" href="${url}" />`, "canonical");
-  r(metaTag("property", "og:title"), `<meta property="og:title" content="${escapeAttr(title)}" />`, "og:title");
-  r(
-    metaTag("property", "og:description"),
-    `<meta property="og:description" content="${escapeAttr(ogDescription ?? description)}" />`,
-    "og:description"
-  );
-  r(metaTag("property", "og:url"), `<meta property="og:url" content="${url}" />`, "og:url");
+  r(/<title>[^<]*<\/title>/, `<title>${escapeText(head.title)}</title>`, "title");
+  r(/<link rel="canonical" href="[^"]*"\s*\/?>/, `<link rel="canonical" href="${head.canonical}" />`, "canonical");
+  for (const { attr, key, content } of head.meta) {
+    // Function replacement so a "$" in content is never read as a pattern.
+    r(metaTag(attr, key), () => `<meta ${attr}="${key}" content="${escapeAttr(content)}" />`, key);
+  }
   r(
     /<div id="root"><\/div>/,
     // data-prerendered tells main.jsx which route this markup belongs to.

@@ -8,7 +8,7 @@ import {
 import Navbar from './components/Navbar'
 import Footer from './components/Footer';
 import './App.css';
-import { routes, HOME_ROUTE, resolveRoute, canonicalFor } from "./routes.jsx";
+import { routes, HOME_ROUTE, resolveRoute, headTagsFor } from "./routes.jsx";
 
 const setMeta = (selector, attr, value) => {
   const el = document.head.querySelector(selector);
@@ -23,15 +23,12 @@ const setMeta = (selector, attr, value) => {
 function HeadSync() {
   const { pathname } = useLocation();
   useEffect(() => {
-    const route = resolveRoute(pathname);
-    const { title, description, ogDescription } = route.meta;
-    const url = canonicalFor(route);
-    document.title = title;
-    setMeta('meta[name="description"]', "content", description);
-    setMeta('link[rel="canonical"]', "href", url);
-    setMeta('meta[property="og:title"]', "content", title);
-    setMeta('meta[property="og:description"]', "content", ogDescription ?? description);
-    setMeta('meta[property="og:url"]', "content", url);
+    const head = headTagsFor(resolveRoute(pathname));
+    document.title = head.title;
+    setMeta('link[rel="canonical"]', "href", head.canonical);
+    for (const { attr, key, content } of head.meta) {
+      setMeta(`meta[${attr}="${key}"]`, "content", content);
+    }
   }, [pathname]);
   return null;
 }

@@ -16,7 +16,10 @@ import Contact from "./components/Contact/Contact.jsx";
  * Adding a page = one entry here + one rewrite in vercel.json + sitemap.xml.
  */
 export const SITE_URL = "https://dinesh.probuilder.in";
+export const SITE_NAME = "Dinesh Chaudhari";
 export const OG_IMAGE = `${SITE_URL}/og.png`;
+export const OG_IMAGE_ALT = "Dinesh Chaudhari, Full-Stack Developer in Pune";
+export const ROBOTS = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
 
 export const routes = [
   {
@@ -24,11 +27,9 @@ export const routes = [
     file: "index.html",
     Component: Home,
     meta: {
-      title: "Dinesh Chaudhari — Full-Stack & Embedded Engineer",
+      title: "Dinesh Chaudhari | Full-Stack Developer in Pune",
       description:
-        "Full-stack developer in Pune, available for freelance projects on Upwork. Sole developer of Rabbitship, a logistics platform serving 1,000+ users. Ranked 14th of 3,000 teams at the OpenAI Codex Hackathon.",
-      ogDescription:
-        "I own products end to end — REST APIs, React apps shipped to Android, and the firmware underneath. Currently building Rabbitship for 1,000+ users.",
+        "Full-stack developer in Pune building React, TypeScript and Node.js applications, AI-powered products and modern software solutions.",
     },
   },
   {
@@ -36,9 +37,9 @@ export const routes = [
     file: "About.html",
     Component: About,
     meta: {
-      title: "About Dinesh Chaudhari — Full-Stack Developer in Pune",
+      title: "About Dinesh Chaudhari | Full-Stack Developer",
       description:
-        "Background, achievements, education and tech stack of Dinesh Chaudhari: full-stack developer at Innover Labs, lead developer at ProBuilder, MCA student at Manipal.",
+        "Learn about Dinesh Chaudhari, a full-stack developer from Pune with experience in React, Node.js, Firebase, AI and software development.",
     },
   },
   {
@@ -46,9 +47,9 @@ export const routes = [
     file: "Project.html",
     Component: Project,
     meta: {
-      title: "Projects — Dinesh Chaudhari | Web, AI & Embedded Work",
+      title: "Projects | Dinesh Chaudhari – Full-Stack Developer",
       description:
-        "Selected projects by Dinesh Chaudhari across web, AI, embedded and blockchain: Rabbitship, GhostDesk, Gesture-AI and more, with source code, live demos and videos.",
+        "Explore Dinesh Chaudhari's software projects across full-stack development, AI, web applications and embedded systems.",
     },
   },
   {
@@ -56,9 +57,9 @@ export const routes = [
     file: "Resume.html",
     Component: Resume,
     meta: {
-      title: "Resume — Dinesh Chaudhari, Full-Stack & Embedded Engineer",
+      title: "Resume | Dinesh Chaudhari – Full-Stack Developer",
       description:
-        "View or download the resume of Dinesh Chaudhari, a full-stack and embedded engineer in Pune working with React, Node.js, Firebase and ESP32.",
+        "Explore the professional experience, technical skills, education and software development projects of Dinesh Chaudhari.",
     },
   },
   {
@@ -66,9 +67,9 @@ export const routes = [
     file: "Contact.html",
     Component: Contact,
     meta: {
-      title: "Contact Dinesh Chaudhari — Hire a Full-Stack Developer",
+      title: "Contact Dinesh Chaudhari | Developer in Pune",
       description:
-        "Get in touch with Dinesh Chaudhari for freelance or full-time work. Send a message, chat on WhatsApp, or hire through Upwork.",
+        "Get in touch with Dinesh Chaudhari for full-stack development, React, Node.js and AI application development opportunities.",
     },
   },
 ];
@@ -86,3 +87,42 @@ export const canonicalFor = (route) =>
  */
 export const resolveRoute = (pathname) =>
   routes.find((r) => matchPath({ path: r.path, end: true }, pathname)) ?? HOME_ROUTE;
+
+/**
+ * Every page-specific <head> tag for a route, in one place. Consumed by
+ * scripts/prerender.js (static HTML) and HeadSync in App.jsx (client-side
+ * navigation), so the two can never drift apart.
+ *
+ * Each `attr="key"` pair must appear exactly once in index.html; the
+ * prerender step fails the build otherwise (which also rules out duplicates).
+ * Optional per-route overrides: meta.ogTitle, meta.ogDescription, meta.ogType.
+ */
+export const headTagsFor = (route) => {
+  const { title, description, ogTitle, ogDescription, ogType } = route.meta;
+  const url = canonicalFor(route);
+  const socialTitle = ogTitle ?? title;
+  const socialDescription = ogDescription ?? description;
+  return {
+    title,
+    canonical: url,
+    meta: [
+      { attr: "name", key: "description", content: description },
+      { attr: "name", key: "robots", content: ROBOTS },
+      { attr: "property", key: "og:type", content: ogType ?? "website" },
+      { attr: "property", key: "og:site_name", content: SITE_NAME },
+      { attr: "property", key: "og:locale", content: "en_IN" },
+      { attr: "property", key: "og:title", content: socialTitle },
+      { attr: "property", key: "og:description", content: socialDescription },
+      { attr: "property", key: "og:url", content: url },
+      { attr: "property", key: "og:image", content: OG_IMAGE },
+      { attr: "property", key: "og:image:width", content: "1200" },
+      { attr: "property", key: "og:image:height", content: "630" },
+      { attr: "property", key: "og:image:alt", content: OG_IMAGE_ALT },
+      { attr: "name", key: "twitter:card", content: "summary_large_image" },
+      { attr: "name", key: "twitter:title", content: socialTitle },
+      { attr: "name", key: "twitter:description", content: socialDescription },
+      { attr: "name", key: "twitter:image", content: OG_IMAGE },
+      { attr: "name", key: "twitter:image:alt", content: OG_IMAGE_ALT },
+    ],
+  };
+};
