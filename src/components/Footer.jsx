@@ -15,7 +15,8 @@ const Footer = () =>{
           <p className="text-sm">Designed and developed by <span className="text-copper">Dinesh Chaudhari</span></p>
         </div>
         <div>
-          <p className="font-mono text-xs">© {new Date().getFullYear()} DC</p>
+          {/* Year is baked in at build time; suppress the one-off mismatch if a build straddles New Year. */}
+          <p className="font-mono text-xs" suppressHydrationWarning>© {new Date().getFullYear()} DC</p>
         </div>
         <div className="flex gap-5 text-xl">
           <a

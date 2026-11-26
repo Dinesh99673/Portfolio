@@ -13,7 +13,7 @@ const AboutCard = () => {
     return (
         <div className="flex flex-col md:flex-row gap-10 items-center">
             <div className="md:w-3/5 w-full">
-                <SectionHeading label="About" title="Background" />
+                <SectionHeading as="h1" label="About" title="Background" />
                 <div className="text-base md:text-lg leading-relaxed text-bone/90 space-y-5">
                     <p>
                         I&apos;m Dinesh — a full-stack developer in Pune, currently at{" "}

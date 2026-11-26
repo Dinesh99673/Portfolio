@@ -68,6 +68,7 @@ function Contact() {
     <section className="py-16 px-6 md:px-16 flex min-h-screen justify-center items-center">
       <div className="w-full max-w-md mt-14">
         <SectionHeading
+          as="h1"
           label="Contact"
           title="Get in touch"
           sub="Hiring, collaborating, or want something built? Tell me what you're working on."

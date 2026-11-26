@@ -18,6 +18,7 @@ const Projects = () => {
     <section id="projects" className="py-16 px-6 md:px-16 min-h-screen">
       <div className="max-w-screen-xl mx-auto mt-14">
         <SectionHeading
+          as="h1"
           label="Projects"
           title="Selected work"
           sub="From soldered prototypes to deployed products — a few things I've built recently."
@@ -42,7 +43,7 @@ const Projects = () => {
 
         {featured.length > 0 && (
           <>
-            <p className="font-mono text-copper text-xs tracking-[0.25em] uppercase mb-6">Featured</p>
+            <h2 className="font-mono text-copper text-xs tracking-[0.25em] uppercase mb-6">Featured</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
               {featured.map((project) => (
                 <ProjectCard key={project.title} {...project} featured />
@@ -54,7 +55,7 @@ const Projects = () => {
         {rest.length > 0 && (
           <>
             {featured.length > 0 && (
-              <p className="font-mono text-copper text-xs tracking-[0.25em] uppercase mb-6">More projects</p>
+              <h2 className="font-mono text-copper text-xs tracking-[0.25em] uppercase mb-6">More projects</h2>
             )}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {rest.map((project) => (
