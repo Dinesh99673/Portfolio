@@ -22,13 +22,25 @@ const app = (
  */
 const { pathname } = window.location
 const marker = container.dataset.prerendered
+const route = resolveRoute(pathname)
 const matchesMarkup =
-  marker === pathname ||
-  (marker === NOT_FOUND_ROUTE.path && resolveRoute(pathname) === NOT_FOUND_ROUTE)
+  marker === pathname || (marker === NOT_FOUND_ROUTE.path && route === NOT_FOUND_ROUTE)
 
-if (container.hasChildNodes() && matchesMarkup) {
-  hydrateRoot(container, app)
-} else {
-  container.textContent = ''
-  createRoot(container).render(app)
+/*
+ * The current page's chunk is already in flight (prerender.js emits a
+ * modulepreload for it), so awaiting it here costs no extra round trip and
+ * lets hydration render synchronously, matching the static HTML.
+ */
+const start = async () => {
+  if (container.hasChildNodes() && matchesMarkup) {
+    await route.Component.preload?.()
+    hydrateRoot(container, app)
+  } else {
+    container.textContent = ''
+    createRoot(container).render(app)
+  }
 }
+
+// Other pages' chunks are fetched (not executed) via <link rel="prefetch">
+// tags that prerender.js adds to every page, so navigation stays instant.
+start()

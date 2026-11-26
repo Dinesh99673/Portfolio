@@ -1,4 +1,4 @@
-import AboutMe from "../../assets/about.jpg";
+import AboutMe from "../../assets/about.webp";
 import { ImPointRight } from "react-icons/im";
 import SectionHeading from "../SectionHeading";
 
@@ -56,6 +56,9 @@ const AboutCard = () => {
                 <img
                     src={AboutMe}
                     alt="Illustration of a developer coding at a desk"
+                    width={1200}
+                    height={800}
+                    decoding="async"
                     className="w-full h-auto mix-blend-lighten pointer-events-none md:scale-[1.35] lg:scale-150"
                     style={{
                         WebkitMaskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, #000 55%, transparent 100%)",

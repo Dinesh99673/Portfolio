@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
-import { SiUpwork } from "react-icons/si";
+import { UpworkIcon } from "../UpworkIcon";
 import { UPWORK_URL, trackUpwork } from "../../upwork";
 import SectionHeading from "../SectionHeading";
 
@@ -159,7 +159,7 @@ function Contact() {
             onClick={() => trackUpwork("contact")}
             className="w-full flex items-center justify-center gap-2 border border-seam hover:border-copper text-bone hover:text-copper py-2.5 px-4 rounded-sm font-semibold transition-colors mt-4"
           >
-            <SiUpwork className="text-lg text-copper" aria-hidden="true" />
+            <UpworkIcon className="text-lg text-copper" aria-hidden="true" />
             Hire me on Upwork
           </a>
           <p className="font-mono text-[11px] text-ash mt-2 text-center">

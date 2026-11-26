@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import toon from "../../assets/me-toon.jpg";
-import real from "../../assets/me-real.jpg";
+import toon from "../../assets/me-toon.webp";
+import real from "../../assets/me-real.webp";
 
 const SPREAD_MS = 1100;
 const DRAIN_MS = 850;
@@ -146,6 +146,13 @@ const HoverPortrait = () => {
         <img
           src={toon}
           alt="Cartoon portrait of Dinesh Chaudhari"
+          width={640}
+          height={800}
+          // Above the fold on every viewport: fetch it with the HTML, first.
+          // React 18 only passes the lowercase attribute through (fetchPriority warns).
+          // eslint-disable-next-line react/no-unknown-property
+          fetchpriority="high"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
@@ -157,6 +164,14 @@ const HoverPortrait = () => {
             ref={photoRef}
             src={real}
             alt="Dinesh Chaudhari"
+            width={640}
+            height={800}
+            // Hidden until hover/tap — never the LCP, so let the toon go first.
+            // React 18 only passes the lowercase attribute through (fetchPriority warns).
+            // eslint-disable-next-line react/no-unknown-property
+            fetchpriority="low"
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ transform: "scale(1.05)", willChange: "transform" }}
           />

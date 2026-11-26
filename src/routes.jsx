@@ -1,10 +1,19 @@
 import { matchPath } from "react-router-dom";
 import Home from "./components/Home/Home";
-import About from "./components/About/About.jsx";
-import Project from "./components/Project/Projects.jsx";
-import Resume from "./components/Resume/Resume";
-import Contact from "./components/Contact/Contact.jsx";
 import NotFound from "./components/NotFound.jsx";
+import { lazyRoute } from "./lazyRoute.jsx";
+
+/*
+ * Route-level code splitting: Home (the landing page and LCP) and the tiny
+ * Not Found page stay in the entry bundle; every other page is its own
+ * chunk. `source` must be the exact path passed to import() — the
+ * prerenderer looks it up in Vite's manifest to emit <link rel="modulepreload">
+ * for that page's chunk, and fails the build if it is missing.
+ */
+const About = lazyRoute(() => import("./components/About/About.jsx"));
+const Project = lazyRoute(() => import("./components/Project/Projects.jsx"));
+const Resume = lazyRoute(() => import("./components/Resume/Resume.jsx"));
+const Contact = lazyRoute(() => import("./components/Contact/Contact.jsx"));
 
 /*
  * Single source of truth for the public routes. Used by:
@@ -36,6 +45,7 @@ export const routes = [
   {
     path: "/About",
     file: "About.html",
+    source: "src/components/About/About.jsx",
     Component: About,
     meta: {
       title: "About Dinesh Chaudhari | Full-Stack Developer",
@@ -46,6 +56,7 @@ export const routes = [
   {
     path: "/Project",
     file: "Project.html",
+    source: "src/components/Project/Projects.jsx",
     Component: Project,
     meta: {
       title: "Projects | Dinesh Chaudhari – Full-Stack Developer",
@@ -56,6 +67,7 @@ export const routes = [
   {
     path: "/Resume",
     file: "Resume.html",
+    source: "src/components/Resume/Resume.jsx",
     Component: Resume,
     meta: {
       title: "Resume | Dinesh Chaudhari – Full-Stack Developer",
@@ -66,6 +78,7 @@ export const routes = [
   {
     path: "/Contact",
     file: "Contact.html",
+    source: "src/components/Contact/Contact.jsx",
     Component: Contact,
     meta: {
       title: "Contact Dinesh Chaudhari | Developer in Pune",

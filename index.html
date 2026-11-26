@@ -44,15 +44,28 @@
     <meta name="twitter:description" content="Full-stack developer in Pune building React, TypeScript and Node.js applications, AI-powered products and modern software solutions." />
     <meta name="twitter:image" content="https://dinesh.probuilder.in/og.png" />
     <meta name="twitter:image:alt" content="Dinesh Chaudhari, Full-Stack Developer in Pune" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-    <!-- Microsoft Clarity -->
+    <!-- Self-hosted fonts (@font-face in src/index.css). Only IBM Plex Sans
+         is preloaded: swapping it in changes how the large hero line wraps
+         (e.g. 3 lines in Segoe UI vs 2 in Plex at 412px), which caused a 0.17
+         layout shift. JetBrains Mono wraps identically to its fallbacks, so
+         preloading it would only compete with the CSS for bandwidth. -->
+    <link rel="preload" href="/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Microsoft Clarity. The queue stub is defined immediately so early
+         window.clarity(...) calls (e.g. Upwork click events) are kept; the
+         tag itself is only fetched after the load event, once the browser
+         is idle, so it never competes with first paint or hydration. -->
     <script type="text/javascript">
-      (function(c,l,a,r,i,t,y){
+      (function(c,l,a,r,i){
           c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          function load(){
+              var t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              var y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          }
+          function idle(){
+              if("requestIdleCallback" in c){c.requestIdleCallback(load,{timeout:5000});}
+              else{setTimeout(load,2000);}
+          }
+          if(l.readyState==="complete"){idle();}else{c.addEventListener("load",idle,{once:true});}
       })(window, document, "clarity", "script", "zfpv8t2106");
     </script>
   </head>

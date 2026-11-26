@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { SiUpwork } from "react-icons/si";
+import { UpworkIcon } from "../UpworkIcon";
 import { UPWORK_URL, trackUpwork } from "../../upwork";
 import HoverPortrait from "./HoverPortrait";
 import Introduction from "./Introduction";
@@ -85,7 +85,7 @@ const Home = () => {
                             onClick={() => trackUpwork("hero")}
                             className="flex items-center gap-2 border border-seam hover:border-copper text-bone hover:text-copper font-semibold px-6 py-3 rounded-sm transition-colors"
                         >
-                            <SiUpwork className="text-lg" aria-hidden="true" />
+                            <UpworkIcon className="text-lg" aria-hidden="true" />
                             Hire me on Upwork ↗
                         </a>
                     </div>

@@ -45,8 +45,8 @@ const Projects = () => {
           <section aria-labelledby="featured-projects-heading">
             <h2 id="featured-projects-heading" className="font-mono text-copper text-xs tracking-[0.25em] uppercase mb-6">Featured</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-              {featured.map((project) => (
-                <ProjectCard key={project.title} {...project} featured />
+              {featured.map((project, i) => (
+                <ProjectCard key={project.title} {...project} featured priority={i === 0} />
               ))}
             </div>
           </section>

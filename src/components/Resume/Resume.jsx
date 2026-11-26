@@ -43,7 +43,7 @@ const Resume = () => {
             </div>
           }
         >
-          <ResumeViewer onFailed={() => setFailed(true)} />
+          <ResumeViewer file={pdf} onFailed={() => setFailed(true)} />
         </ClientOnly>
 
         {!failed && (

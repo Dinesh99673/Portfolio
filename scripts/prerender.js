@@ -20,6 +20,77 @@ const serverEntry = path.join(root, "dist-ssr", "entry-server.js");
 
 const { render, routes, NOT_FOUND_ROUTE, headTagsFor, SITE_URL } = await import(pathToFileURL(serverEntry).href);
 const template = fs.readFileSync(path.join(distDir, "index.html"), "utf-8");
+const manifestPath = path.join(distDir, ".vite", "manifest.json");
+const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
+
+/*
+ * Page chunks are code-split (src/lazyRoute.jsx). renderToString cannot
+ * wait for a lazy component, so load every page chunk first; after that
+ * each renders synchronously, exactly as it will during hydration.
+ */
+await Promise.all([...routes, NOT_FOUND_ROUTE].map((r) => r.Component.preload?.()));
+
+/*
+ * <link> tags that start fetching a lazy page's chunk (and its static
+ * imports and CSS) in parallel with the entry bundle, so main.jsx's
+ * preload-before-hydrate never waits on an extra round trip.
+ */
+const entryKey = Object.keys(manifest).find((k) => manifest[k].isEntry);
+/*
+ * Usually a page chunk is keyed by its source path. When Rollup also puts
+ * modules shared with a deeper chunk into it (Resume.jsx + PdfSpinner, used
+ * by ResumeViewer), Vite keys it "_Resume-<hash>.js" without `src`; then
+ * match the entry's dynamic import whose chunk name is the file's basename.
+ */
+const chunkKeyFor = (source) => {
+  if (manifest[source]) return source;
+  const bySrc = Object.keys(manifest).find((k) => manifest[k].src === source);
+  if (bySrc) return bySrc;
+  const name = path.basename(source).replace(/\.[jt]sx?$/, "");
+  const candidates = (manifest[entryKey].dynamicImports ?? []).filter(
+    (k) => manifest[k]?.isDynamicEntry && manifest[k].name === name
+  );
+  return candidates.length === 1 ? candidates[0] : undefined;
+};
+/** JS and CSS files a page chunk needs (itself + static imports, minus the entry). */
+const chunkFilesFor = (route) => {
+  const js = new Set();
+  const css = new Set();
+  if (!route.source) return { js, css };
+  const key = chunkKeyFor(route.source);
+  if (!key) {
+    throw new Error(`[prerender] ${route.path}: "${route.source}" not found in Vite manifest — is routes.jsx source correct?`);
+  }
+  const visit = (k) => {
+    if (k === entryKey || js.has(manifest[k].file)) return;
+    js.add(manifest[k].file);
+    (manifest[k].css ?? []).forEach((c) => css.add(c));
+    (manifest[k].imports ?? []).forEach(visit);
+  };
+  visit(key);
+  return { js, css };
+};
+
+/*
+ *  - This page's chunk: modulepreload (fetched now, in parallel with the
+ *    entry) + its CSS as a stylesheet.
+ *  - Other pages' chunks: rel="prefetch" — fetched at idle priority and NOT
+ *    executed, so in-app navigation is instant without adding main-thread
+ *    work to this page.
+ */
+const preloadTagsFor = (route) => {
+  const own = chunkFilesFor(route);
+  const others = new Set();
+  for (const r of routes) {
+    if (r === route) continue;
+    for (const f of chunkFilesFor(r).js) if (!own.js.has(f)) others.add(f);
+  }
+  return [
+    ...[...own.css].map((f) => `<link rel="stylesheet" crossorigin href="/${f}">`),
+    ...[...own.js].map((f) => `<link rel="modulepreload" crossorigin href="/${f}">`),
+    ...[...others].map((f) => `<link rel="prefetch" crossorigin href="/${f}">`),
+  ].join("\n    ");
+};
 
 // Vercel only serves dist/About.html at /About if vercel.json rewrites it
 // there. Fail early if a route was added to src/routes.jsx without its rewrite.
@@ -89,6 +160,8 @@ for (const route of [...routes, NOT_FOUND_ROUTE]) {
     // Function replacement so a "$" in content is never read as a pattern.
     r(metaTag(attr, key), () => `<meta ${attr}="${key}" content="${escapeAttr(content)}" />`, key);
   }
+  const preloads = preloadTagsFor(route);
+  if (preloads) r(/<\/head>/, () => `  ${preloads}\n  </head>`, "</head>");
   r(
     /<div id="root"><\/div>/,
     // data-prerendered tells main.jsx which route this markup belongs to
@@ -105,5 +178,6 @@ for (const route of [...routes, NOT_FOUND_ROUTE]) {
   console.log(`[prerender] ${route.path.padEnd(9)} → dist/${route.file}  (${(appHtml.length / 1024).toFixed(1)} KB of HTML)`);
 }
 
-// The server bundle is only a build tool; keep it out of the deploy.
+// The server bundle and the manifest are only build tools; keep them out of the deploy.
 fs.rmSync(path.join(root, "dist-ssr"), { recursive: true, force: true });
+fs.rmSync(path.join(distDir, ".vite"), { recursive: true, force: true });

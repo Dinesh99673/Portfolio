@@ -5,7 +5,7 @@ import {
     AiFillInstagram,
   } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
-import { SiUpwork } from "react-icons/si";
+import { UpworkIcon } from "./UpworkIcon";
 import { UPWORK_URL, trackUpwork } from "../upwork";
 
 const Footer = () =>{
@@ -38,7 +38,7 @@ const Footer = () =>{
             title="Upwork"
             aria-label="Upwork profile"
           >
-            <SiUpwork />
+            <UpworkIcon />
           </a>
           <a
             href="https://www.linkedin.com/in/dinesh7821"

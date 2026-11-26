@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -49,12 +49,18 @@ export function AppShell() {
       </a>
       <Navbar/>
       <main id="main-content" tabIndex={-1} className="focus:outline-none">
-        <Routes>
-          {routes.map(({ path, Component }) => (
-            <Route key={path} path={path} caseSensitive element={<Component />} />
-          ))}
-          <Route path="*" element={<NOT_FOUND_ROUTE.Component />} />
-        </Routes>
+        {/* Pages other than Home are separate chunks (routes.jsx). Navigation
+            runs in a transition, so the current page stays up while the next
+            chunk loads; this fallback only shows on a cold load that was not
+            preloaded (never on the prerendered first page). */}
+        <Suspense fallback={<div className="min-h-screen" aria-busy="true" />}>
+          <Routes>
+            {routes.map(({ path, Component }) => (
+              <Route key={path} path={path} caseSensitive element={<Component />} />
+            ))}
+            <Route path="*" element={<NOT_FOUND_ROUTE.Component />} />
+          </Routes>
+        </Suspense>
       </main>
       <Footer/>
     </div>

@@ -1,10 +1,10 @@
-import React from "react";
+import { memo } from "react";
 import { AiFillGithub } from "react-icons/ai";
 import { FiExternalLink, FiAward, FiYoutube } from "react-icons/fi";
 
 const slug = (text) => text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-const ProjectCard = ({ title, description, tech, image, githubLink, liveLink, award, awardLink, videoId, featured }) => {
+const ProjectCard = ({ title, description, tech, image, githubLink, liveLink, award, awardLink, videoId, featured, priority = false }) => {
   const headingId = `project-${slug(title)}`;
   return (
     <article
@@ -31,7 +31,15 @@ const ProjectCard = ({ title, description, tech, image, githubLink, liveLink, aw
           <img
             src={image}
             alt={`Screenshot of ${title}`}
-            loading="lazy"
+            // Every source is 1200px wide; 16:9 matches the aspect-video frame.
+            width={1200}
+            height={675}
+            // The first featured card is above the fold and usually the LCP.
+            loading={priority ? "eager" : "lazy"}
+            // React 18 only passes the lowercase attribute through (fetchPriority warns).
+            // eslint-disable-next-line react/no-unknown-property
+            fetchpriority={priority ? "high" : "auto"}
+            decoding="async"
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           />
         )}
@@ -96,4 +104,6 @@ const ProjectCard = ({ title, description, tech, image, githubLink, liveLink, aw
   );
 };
 
-export default ProjectCard;
+// Cards get static props from ProjectData, so filtering only re-renders
+// the cards whose props actually change.
+export default memo(ProjectCard);

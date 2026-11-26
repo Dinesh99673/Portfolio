@@ -2,7 +2,6 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
-import pdf from "../../assets/Dinesh-Chaudhari-Resume.pdf";
 import { PdfSpinner } from "./PdfSpinner";
 
 /*
@@ -17,7 +16,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 
 const MAX_PAGE_WIDTH = 900;
 
-const ResumeViewer = ({ onFailed }) => {
+const ResumeViewer = ({ file, onFailed }) => {
   const [numPages, setNumPages] = useState(null);
   const [pageWidth, setPageWidth] = useState(MAX_PAGE_WIDTH);
   const wrapRef = useRef(null);
@@ -39,7 +38,7 @@ const ResumeViewer = ({ onFailed }) => {
   return (
     <div ref={wrapRef} className="w-full flex flex-col items-center">
       <Document
-        file={pdf}
+        file={file}
         onLoadSuccess={onLoad}
         onLoadError={onFailed}
         externalLinkTarget="_blank"

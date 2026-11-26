@@ -4,12 +4,12 @@ import {
   AiFillInstagram,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
-import { SiUpwork } from "react-icons/si";
+import { UpworkIcon } from "../UpworkIcon";
 import { UPWORK_URL, trackUpwork } from "../../upwork";
 
 const socials = [
   { href: "https://github.com/Dinesh99673", title: "GitHub", Icon: AiFillGithub },
-  { href: UPWORK_URL, title: "Upwork", Icon: SiUpwork, onClick: () => trackUpwork("elsewhere") },
+  { href: UPWORK_URL, title: "Upwork", Icon: UpworkIcon, onClick: () => trackUpwork("elsewhere") },
   { href: "https://www.linkedin.com/in/dinesh7821/", title: "LinkedIn", Icon: FaLinkedinIn },
   { href: "https://www.instagram.com/dineshdchoudhari?igsh=MTg4dWN5aWh1aWw3OA==", title: "Instagram", Icon: AiFillInstagram },
 ];
