@@ -111,6 +111,22 @@
     animation: rise 0.5s ease both;
 }
 
+/* Experience carousel: card enters from the side you're moving toward */
+@keyframes slide-from-right {
+    from { transform: translateX(60px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slide-from-left {
+    from { transform: translateX(-60px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+.slide-from-right {
+    animation: slide-from-right 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.slide-from-left {
+    animation: slide-from-left 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
