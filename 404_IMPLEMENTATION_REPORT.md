@@ -92,16 +92,31 @@ Real pages keep `index, follow`.
 | `/about`, `/About/`, `/projects` | 308 | → canonical page |
 | `/og.png`, `/robots.txt`, `/sitemap.xml` | 200 | static file |
 
-### Production
-**Not yet verified.** The changes are not deployed. Vercel deploys from pushes to `main`. After deployment, run:
+### Production: verified 2026-11-26 after deploying commit `4803d88`
+
+| URL | Status | Served |
+|---|---|---|
+| `/` | 200 | home (`data-prerendered="/"`) |
+| `/About` | 200 | About.html |
+| `/Project` | 200 | Project.html |
+| `/Resume` | 200 | Resume.html |
+| `/Contact` | 200 | Contact.html |
+| `/random-invalid-route` | **404** | "Page Not Found" (404.html) |
+| `/assets/nonexistent.js` | **404** | 404.html |
+| `/a/b/c` | **404** | 404.html |
+| `/ABOUT` (unlisted variant) | **404** | 404.html |
+| `/about`, `/About/` | 308 | → `https://dinesh.probuilder.in/About` |
+| `/projects` | 308 | → `https://dinesh.probuilder.in/Project` |
+| `/og.png`, `/robots.txt`, `/sitemap.xml` | 200 | static files, correct content types |
+| `/assets/index-*.js` (real bundle) | 200 | `application/javascript` |
+
+To re-check at any time:
 
 ```bash
 for p in / /About /Project /Resume /Contact /random-invalid-route /assets/nonexistent.js /about /About/; do
   printf "%-26s " "$p"; curl -s -o /dev/null -w "%{http_code} %{redirect_url}\n" "https://dinesh.probuilder.in$p"
 done
 ```
-
-Expected: 200 ×5, 404 ×2, 308 ×2.
 
 ## Notes and follow-ups
 
