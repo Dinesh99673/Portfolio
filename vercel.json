@@ -1,6 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "dinesh-portfolio-gilt.vercel.app" }],
+      "destination": "https://dinesh.probuilder.in/:path*",
+      "permanent": true
+    },
     { "source": "/about", "destination": "/About", "permanent": true },
     { "source": "/about/", "destination": "/About", "permanent": true },
     { "source": "/About/", "destination": "/About", "permanent": true },
