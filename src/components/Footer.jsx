@@ -18,13 +18,14 @@ const Footer = () =>{
           {/* Year is baked in at build time; suppress the one-off mismatch if a build straddles New Year. */}
           <p className="font-mono text-xs" suppressHydrationWarning>© {new Date().getFullYear()} DC</p>
         </div>
-        <div className="flex gap-5 text-xl">
+        <nav aria-label="Social" className="flex gap-5 text-xl">
           <a
             href="https://github.com/Dinesh99673"
             target="_blank"
             rel="noreferrer"
             className="hover:text-copper transition-colors"
             title="Github"
+            aria-label="GitHub profile"
           >
             <AiFillGithub />
           </a>
@@ -35,6 +36,7 @@ const Footer = () =>{
             rel="noreferrer"
             className="hover:text-copper transition-colors"
             title="Upwork"
+            aria-label="Upwork profile"
           >
             <SiUpwork />
           </a>
@@ -44,6 +46,7 @@ const Footer = () =>{
             rel="noreferrer"
             className="hover:text-copper transition-colors"
             title="Linkedin"
+            aria-label="LinkedIn profile"
           >
             <FaLinkedinIn />
           </a>
@@ -53,10 +56,11 @@ const Footer = () =>{
             rel="noreferrer"
             className="hover:text-copper transition-colors"
             title="Instagram"
+            aria-label="Instagram profile"
           >
             <AiFillInstagram />
           </a>
-        </div>
+        </nav>
       </footer>
     );
 }

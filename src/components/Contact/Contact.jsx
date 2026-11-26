@@ -65,15 +65,16 @@ function Contact() {
     "block font-mono text-xs tracking-widest uppercase text-ash mb-1.5";
 
   return (
-    <section className="py-16 px-6 md:px-16 flex min-h-screen justify-center items-center">
+    <div className="py-16 px-6 md:px-16 flex min-h-screen justify-center items-center">
       <div className="w-full max-w-md mt-14">
         <SectionHeading
           as="h1"
+          id="contact-heading"
           label="Contact"
-          title="Get in touch"
+          title="Contact Dinesh Chaudhari"
           sub="Hiring, collaborating, or want something built? Tell me what you're working on."
         />
-        <form onSubmit={sendMail} className="bg-panel border border-seam p-6 rounded-md">
+        <form onSubmit={sendMail} aria-labelledby="contact-heading" className="bg-panel border border-seam p-6 rounded-md">
           {/* honeypot — hidden from people, tempting to bots */}
           <input
             type="checkbox"
@@ -81,6 +82,7 @@ function Contact() {
             className="hidden"
             tabIndex="-1"
             autoComplete="off"
+            aria-hidden="true"
           />
 
           <div className="mb-4">
@@ -143,7 +145,7 @@ function Contact() {
             rel="noopener noreferrer"
             className="w-full flex items-center justify-center gap-2 border border-seam hover:border-trace text-bone hover:text-trace py-2.5 px-4 rounded-sm font-semibold transition-colors"
           >
-            <FaWhatsapp className="text-lg text-trace" />
+            <FaWhatsapp className="text-lg text-trace" aria-hidden="true" />
             Message me on WhatsApp
           </a>
           <p className="font-mono text-[11px] text-ash mt-2 text-center">
@@ -157,26 +159,29 @@ function Contact() {
             onClick={() => trackUpwork("contact")}
             className="w-full flex items-center justify-center gap-2 border border-seam hover:border-copper text-bone hover:text-copper py-2.5 px-4 rounded-sm font-semibold transition-colors mt-4"
           >
-            <SiUpwork className="text-lg text-copper" />
+            <SiUpwork className="text-lg text-copper" aria-hidden="true" />
             Hire me on Upwork
           </a>
           <p className="font-mono text-[11px] text-ash mt-2 text-center">
             Prefer contracts and payments through Upwork? Start there.
           </p>
 
-          {status === "sent" && (
-            <p className="font-mono text-sm text-trace mt-4">
-              Message sent — I&apos;ll get back to you soon.
-            </p>
-          )}
-          {status === "error" && (
-            <p className="font-mono text-sm text-copper mt-4">
-              That didn&apos;t go through. Try WhatsApp above, or email dineshdc7821@gmail.com.
-            </p>
-          )}
+          {/* Live region stays mounted so screen readers announce the result. */}
+          <div role="status" aria-live="polite">
+            {status === "sent" && (
+              <p className="font-mono text-sm text-trace mt-4">
+                Message sent — I&apos;ll get back to you soon.
+              </p>
+            )}
+            {status === "error" && (
+              <p className="font-mono text-sm text-copper mt-4">
+                That didn&apos;t go through. Try WhatsApp above, or email dineshdc7821@gmail.com.
+              </p>
+            )}
+          </div>
         </form>
       </div>
-    </section>
+    </div>
   );
 }
 

@@ -68,9 +68,10 @@ const Experience = () => {
   const job = experiences[active];
 
   return (
-    <div className="border-t border-seam px-6 md:px-16 py-16 md:py-24">
+    <section aria-labelledby="experience-heading" className="border-t border-seam px-6 md:px-16 py-16 md:py-24">
       <div className="max-w-screen-xl mx-auto">
         <SectionHeading
+          id="experience-heading"
           label="Experience"
           title="Where I work"
           sub="Products I've owned end to end."
@@ -93,14 +94,15 @@ const Experience = () => {
             onTouchEnd={onTouchEnd}
             aria-live="polite"
           >
-            <div
+            <article
               key={active}
+              aria-labelledby="experience-role"
               className={`bg-panel border border-seam rounded-md p-6 md:p-8 ${
                 direction === "next" ? "slide-from-right" : direction === "prev" ? "slide-from-left" : ""
               }`}
             >
               <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 mb-1">
-                <h3 className="text-2xl font-semibold text-bone">{job.role}</h3>
+                <h3 id="experience-role" className="text-2xl font-semibold text-bone">{job.role}</h3>
                 <p className="font-mono text-xs md:text-sm text-copper tracking-widest uppercase">
                   {job.period}
                 </p>
@@ -141,7 +143,7 @@ const Experience = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </article>
           </div>
 
           <button
@@ -194,7 +196,7 @@ const Experience = () => {
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

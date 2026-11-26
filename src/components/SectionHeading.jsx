@@ -4,8 +4,16 @@ import React from "react";
  * Circuit-trace section heading — the theme's signature element.
  * A short copper trace ending in a solder pad, a mono label, and a
  * hairline running to the edge.
+ *
+ * `as`  — heading level. Defaults to h2; a page passes "h1" exactly once,
+ *         for its primary heading. Reusable components never default to h1.
+ * `id`  — set on the heading so a wrapping <section> can reference it
+ *         with aria-labelledby.
+ *
+ * The label row is decorative (aria-hidden): the heading text alone must
+ * describe the section.
  */
-const SectionHeading = ({ label, title, sub, as: Heading = "h2" }) => {
+const SectionHeading = ({ label, title, sub, id, as: Heading = "h2" }) => {
   return (
     <div className="mb-10">
       <div className="flex items-center gap-3 mb-4" aria-hidden="true">
@@ -14,7 +22,7 @@ const SectionHeading = ({ label, title, sub, as: Heading = "h2" }) => {
         <span className="font-mono text-copper text-xs md:text-sm tracking-[0.25em] uppercase">{label}</span>
         <span className="relative flex-1 h-px bg-seam" />
       </div>
-      <Heading className="text-3xl md:text-4xl font-semibold text-bone">{title}</Heading>
+      <Heading id={id} className="text-3xl md:text-4xl font-semibold text-bone">{title}</Heading>
       {sub && <p className="text-ash mt-2 max-w-2xl">{sub}</p>}
     </div>
   );

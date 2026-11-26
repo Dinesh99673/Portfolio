@@ -4,6 +4,7 @@ import About from "./components/About/About.jsx";
 import Project from "./components/Project/Projects.jsx";
 import Resume from "./components/Resume/Resume";
 import Contact from "./components/Contact/Contact.jsx";
+import NotFound from "./components/NotFound.jsx";
 
 /*
  * Single source of truth for the public routes. Used by:
@@ -76,17 +77,39 @@ export const routes = [
 
 export const HOME_ROUTE = routes[0];
 
+/*
+ * Rendered for every URL that is not in `routes`. Prerendered to
+ * dist/404.html, which Vercel serves with a real 404 status for any path
+ * that matches no file and no rewrite. Not part of `routes`, so it never
+ * gets a rewrite or a sitemap entry. noindex keeps it out of search even
+ * if a crawler ever sees it with a 200 (client-side navigation).
+ */
+export const NOT_FOUND_ROUTE = {
+  path: "*",
+  file: "404.html",
+  Component: NotFound,
+  meta: {
+    title: "Page Not Found | Dinesh Chaudhari",
+    description:
+      "The page you were looking for does not exist. Return to Dinesh Chaudhari's portfolio homepage.",
+    robots: "noindex, follow",
+    canonical: `${SITE_URL}/`,
+  },
+};
+
 /** Absolute canonical URL for a route ("/" → "https://…/"). */
 export const canonicalFor = (route) =>
-  route.path === "/" ? `${SITE_URL}/` : `${SITE_URL}${route.path}`;
+  route.meta.canonical ?? (route.path === "/" ? `${SITE_URL}/` : `${SITE_URL}${route.path}`);
 
 /**
  * The route React Router will actually render for a pathname. Mirrors
- * <Routes>: case-insensitive, trailing slash tolerated, and anything
- * unknown falls through to Home (the existing "*" behaviour).
+ * <Routes>: case-sensitive (like Vercel's rewrites, so the server and the
+ * client always agree), trailing slash tolerated, and anything unknown
+ * resolves to the Not Found page — never to Home.
  */
 export const resolveRoute = (pathname) =>
-  routes.find((r) => matchPath({ path: r.path, end: true }, pathname)) ?? HOME_ROUTE;
+  routes.find((r) => matchPath({ path: r.path, caseSensitive: true, end: true }, pathname)) ??
+  NOT_FOUND_ROUTE;
 
 /**
  * Every page-specific <head> tag for a route, in one place. Consumed by
@@ -95,10 +118,11 @@ export const resolveRoute = (pathname) =>
  *
  * Each `attr="key"` pair must appear exactly once in index.html; the
  * prerender step fails the build otherwise (which also rules out duplicates).
- * Optional per-route overrides: meta.ogTitle, meta.ogDescription, meta.ogType.
+ * Optional per-route overrides: meta.ogTitle, meta.ogDescription, meta.ogType,
+ * meta.robots, meta.canonical.
  */
 export const headTagsFor = (route) => {
-  const { title, description, ogTitle, ogDescription, ogType } = route.meta;
+  const { title, description, ogTitle, ogDescription, ogType, robots } = route.meta;
   const url = canonicalFor(route);
   const socialTitle = ogTitle ?? title;
   const socialDescription = ogDescription ?? description;
@@ -107,7 +131,7 @@ export const headTagsFor = (route) => {
     canonical: url,
     meta: [
       { attr: "name", key: "description", content: description },
-      { attr: "name", key: "robots", content: ROBOTS },
+      { attr: "name", key: "robots", content: robots ?? ROBOTS },
       { attr: "property", key: "og:type", content: ogType ?? "website" },
       { attr: "property", key: "og:site_name", content: SITE_NAME },
       { attr: "property", key: "og:locale", content: "en_IN" },

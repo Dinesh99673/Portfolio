@@ -8,7 +8,7 @@ import {
 import Navbar from './components/Navbar'
 import Footer from './components/Footer';
 import './App.css';
-import { routes, HOME_ROUTE, resolveRoute, headTagsFor } from "./routes.jsx";
+import { routes, NOT_FOUND_ROUTE, resolveRoute, headTagsFor } from "./routes.jsx";
 
 const setMeta = (selector, attr, value) => {
   const el = document.head.querySelector(selector);
@@ -41,13 +41,21 @@ export function AppShell() {
   return (
     <div className="App min-h-screen">
       <HeadSync />
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:bg-copper focus:text-ink focus:font-semibold focus:px-4 focus:py-2 focus:rounded-sm"
+      >
+        Skip to content
+      </a>
       <Navbar/>
-      <Routes>
-        {routes.map(({ path, Component }) => (
-          <Route key={path} path={path} element={<Component />} />
-        ))}
-        <Route path="*" element={<HOME_ROUTE.Component />} />
-      </Routes>
+      <main id="main-content" tabIndex={-1} className="focus:outline-none">
+        <Routes>
+          {routes.map(({ path, Component }) => (
+            <Route key={path} path={path} caseSensitive element={<Component />} />
+          ))}
+          <Route path="*" element={<NOT_FOUND_ROUTE.Component />} />
+        </Routes>
+      </main>
       <Footer/>
     </div>
   )

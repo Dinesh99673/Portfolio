@@ -5,10 +5,10 @@ import StackDiagram from "./StackDiagram";
 
 const Introduction = () => {
   return (
-    <div className="border-t border-seam px-6 md:px-16 py-16 md:py-24">
+    <section aria-labelledby="introduction-heading" className="border-t border-seam px-6 md:px-16 py-16 md:py-24">
       <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center gap-12">
         <div className="md:w-3/5 w-full">
-          <SectionHeading label="Introduction" title="What I actually build" />
+          <SectionHeading id="introduction-heading" label="Introduction" title="What I actually build" />
           <div className="text-lg text-bone/90 leading-relaxed space-y-5">
             <p>
               I&apos;m a full-stack developer at{" "}
@@ -45,7 +45,7 @@ const Introduction = () => {
           <StackDiagram />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

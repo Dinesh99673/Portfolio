@@ -16,9 +16,9 @@ const Credentials = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 py-6">
       <div className="bg-panel border border-seam rounded-md p-6">
-        <p className="font-mono text-xs text-copper tracking-[0.25em] uppercase mb-5">
+        <h3 className="font-mono text-xs text-copper tracking-[0.25em] uppercase mb-5">
           Achievements
-        </p>
+        </h3>
         <ul className="space-y-4">
           {achievements.map(({ label, detail, year }) => (
             <li key={label} className="border-l-2 border-seam pl-4">
@@ -33,9 +33,9 @@ const Credentials = () => {
       </div>
 
       <div className="bg-panel border border-seam rounded-md p-6">
-        <p className="font-mono text-xs text-copper tracking-[0.25em] uppercase mb-5">
+        <h3 className="font-mono text-xs text-copper tracking-[0.25em] uppercase mb-5">
           Education
-        </p>
+        </h3>
         <ul className="space-y-4">
           {education.map(({ course, school, period, note }) => (
             <li key={course} className="border-l-2 border-seam pl-4">

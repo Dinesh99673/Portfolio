@@ -38,7 +38,7 @@ const ToolStack = () => {
                     className="w-[104px] md:w-[128px] h-24 flex flex-col items-center justify-center gap-2 text-[34px] bg-panel rounded-md border border-seam hover:border-copper transition-colors duration-300"
                     title={name}
                 >
-                    <Icon style={{ color }} />
+                    <Icon style={{ color }} aria-hidden="true" />
                     <span className="font-mono text-[10px] text-ash tracking-wider uppercase text-center px-1">
                         {name}
                     </span>

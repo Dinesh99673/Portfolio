@@ -8,27 +8,27 @@ import SectionHeading from "../SectionHeading";
 
 const About = ()=>{
     return(
-        <section className="px-6 md:px-16 py-16 min-h-screen">
+        <div className="px-6 md:px-16 py-16 min-h-screen">
             <div className="max-w-screen-xl mx-auto mt-14">
                 <AboutCard />
-                <div className="mt-20">
-                    <SectionHeading label="Record" title="Achievements & education" />
+                <section aria-labelledby="credentials-heading" className="mt-20">
+                    <SectionHeading id="credentials-heading" label="Record" title="Achievements & education" />
                     <Credentials/>
-                </div>
-                <div className="mt-12">
-                    <SectionHeading label="Skillset" title="What I build with" />
+                </section>
+                <section aria-labelledby="skills-heading" className="mt-12">
+                    <SectionHeading id="skills-heading" label="Skillset" title="What I build with" />
                     <TechStack/>
-                </div>
-                <div className="mt-12">
-                    <SectionHeading label="Toolbox" title="Daily drivers" />
+                </section>
+                <section aria-labelledby="tools-heading" className="mt-12">
+                    <SectionHeading id="tools-heading" label="Toolbox" title="Daily drivers" />
                     <ToolStack/>
-                </div>
-                <div className="mt-12 mb-8">
-                    <SectionHeading label="Activity" title="Commit history" />
+                </section>
+                <section aria-labelledby="activity-heading" className="mt-12 mb-8">
+                    <SectionHeading id="activity-heading" label="Activity" title="Commit history" />
                     <Github/>
-                </div>
+                </section>
             </div>
-        </section>
+        </div>
     );
 }
 

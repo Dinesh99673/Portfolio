@@ -14,7 +14,7 @@ const DownloadButton = () => (
     download="Dinesh-Chaudhari-Resume.pdf"
     className="flex items-center justify-center gap-2 px-6 h-11 text-sm md:text-lg font-semibold text-ink bg-copper hover:bg-copper-bright rounded-sm transition-colors"
   >
-    <AiOutlineDownload />
+    <AiOutlineDownload aria-hidden="true" />
     Download CV
   </a>
 );
@@ -28,7 +28,7 @@ const Resume = () => {
         <SectionHeading
           as="h1"
           label="Resume"
-          title="Resume"
+          title="Dinesh Chaudhari – Professional Resume"
           sub="Links in the document are live — click any of them to open."
         />
 

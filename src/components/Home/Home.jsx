@@ -11,16 +11,24 @@ import certificate from "../../assets/certificates/openai-codex-hackathon-winner
 const Home = () => {
     return (
         <div className="flex flex-col">
-            <div className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20 px-6 md:px-16 pt-28 pb-16">
+            <section
+                aria-labelledby="home-heading"
+                className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20 px-6 md:px-16 pt-28 pb-16"
+            >
                 <div className="max-w-2xl">
-                    <p className="font-mono text-copper text-sm md:text-base tracking-[0.2em] uppercase mb-6">
-                        Dinesh Chaudhari · Pune, IN
-                    </p>
-                    <h1 className="text-4xl md:text-6xl font-bold text-bone leading-tight">
+                    {/* The page's single H1 — who and where, in the eyebrow style.
+                        The large line below is a tagline, so it is a <p>. */}
+                    <h1
+                        id="home-heading"
+                        className="font-mono text-copper text-sm md:text-base tracking-[0.2em] uppercase mb-6"
+                    >
+                        Dinesh Chaudhari – Full-Stack Developer in Pune
+                    </h1>
+                    <p className="text-4xl md:text-6xl font-bold text-bone leading-tight">
                         I build products from{" "}
                         <span className="text-copper">firmware</span> to{" "}
                         <span className="text-copper">frontend</span>.
-                    </h1>
+                    </p>
                     <p className="text-ash text-lg md:text-xl mt-6">
                         I own products end to end — REST APIs, React apps shipped to
                         Android, and the firmware underneath. Currently sole developer
@@ -77,14 +85,14 @@ const Home = () => {
                             onClick={() => trackUpwork("hero")}
                             className="flex items-center gap-2 border border-seam hover:border-copper text-bone hover:text-copper font-semibold px-6 py-3 rounded-sm transition-colors"
                         >
-                            <SiUpwork className="text-lg" />
+                            <SiUpwork className="text-lg" aria-hidden="true" />
                             Hire me on Upwork ↗
                         </a>
                     </div>
                 </div>
 
                 <HoverPortrait />
-            </div>
+            </section>
             <Introduction />
             <Experience />
             <Elsewhere />

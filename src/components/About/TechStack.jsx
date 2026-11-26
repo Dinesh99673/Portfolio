@@ -77,9 +77,9 @@ const TechStack = () => {
         <div className="space-y-8 py-6">
             {groups.map(({ label, items }) => (
                 <div key={label}>
-                    <p className="font-mono text-xs text-ash tracking-[0.25em] uppercase mb-3">
+                    <h3 className="font-mono text-xs text-ash tracking-[0.25em] uppercase mb-3">
                         {label}
-                    </p>
+                    </h3>
                     <div className="flex flex-wrap gap-3">
                         {items.map(({ Icon, name, color }) => (
                             <div
@@ -87,7 +87,7 @@ const TechStack = () => {
                                 className="w-[104px] md:w-[128px] h-24 flex flex-col items-center justify-center gap-2 text-[34px] bg-panel rounded-md border border-seam hover:border-copper transition-colors duration-300"
                                 title={name}
                             >
-                                <Icon style={{ color }} />
+                                <Icon style={{ color }} aria-hidden="true" />
                                 <span className="font-mono text-[10px] text-ash tracking-wider uppercase text-center px-1">
                                     {name}
                                 </span>

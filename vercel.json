@@ -1,10 +1,25 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/about", "destination": "/About", "permanent": true },
+    { "source": "/about/", "destination": "/About", "permanent": true },
+    { "source": "/About/", "destination": "/About", "permanent": true },
+    { "source": "/project", "destination": "/Project", "permanent": true },
+    { "source": "/project/", "destination": "/Project", "permanent": true },
+    { "source": "/Project/", "destination": "/Project", "permanent": true },
+    { "source": "/projects", "destination": "/Project", "permanent": true },
+    { "source": "/Projects", "destination": "/Project", "permanent": true },
+    { "source": "/resume", "destination": "/Resume", "permanent": true },
+    { "source": "/resume/", "destination": "/Resume", "permanent": true },
+    { "source": "/Resume/", "destination": "/Resume", "permanent": true },
+    { "source": "/contact", "destination": "/Contact", "permanent": true },
+    { "source": "/contact/", "destination": "/Contact", "permanent": true },
+    { "source": "/Contact/", "destination": "/Contact", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/About", "destination": "/About.html" },
     { "source": "/Project", "destination": "/Project.html" },
     { "source": "/Resume", "destination": "/Resume.html" },
-    { "source": "/Contact", "destination": "/Contact.html" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/Contact", "destination": "/Contact.html" }
   ]
 }

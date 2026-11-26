@@ -18,12 +18,12 @@ const Navbar = () => {
     return (
         <header className="z-50 fixed top-0 left-0 right-0 h-16 bg-ink/85 backdrop-blur border-b border-seam flex items-center justify-between px-6 md:px-10">
             {/* Logo */}
-            <NavLink to="/" className="font-mono text-copper text-xl font-bold tracking-tight" onClick={() => setMenuOpen(false)}>
+            <NavLink to="/" aria-label="Dinesh Chaudhari – Home" className="font-mono text-copper text-xl font-bold tracking-tight" onClick={() => setMenuOpen(false)}>
                 DC<span className="text-ash">.</span>
             </NavLink>
 
             {/* Desktop Menu */}
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav aria-label="Primary" className="hidden md:flex items-center space-x-8">
                 {links.map(({ to, label }) => (
                     <NavLink
                         key={to}
@@ -45,6 +45,7 @@ const Navbar = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     title="GitHub"
+                    aria-label="GitHub profile"
                 >
                     <AiFillGithub />
                 </a>
@@ -61,20 +62,25 @@ const Navbar = () => {
 
             {/* Mobile Menu Icon */}
             <button
-                aria-label="Toggle Menu"
+                aria-label="Toggle menu"
                 aria-expanded={menuOpen}
+                aria-controls="mobile-menu"
                 className="md:hidden text-bone"
                 onClick={() => setMenuOpen(!menuOpen)}
             >
                 {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
 
-            {/* Mobile Dropdown Menu */}
-            <div
+            {/* Mobile Dropdown Menu — `invisible` when closed keeps the hidden
+                links out of the tab order and accessibility tree; visibility
+                flips after the fade, so the animation is unchanged. */}
+            <nav
+                id="mobile-menu"
+                aria-label="Mobile"
                 className={`absolute top-16 left-0 w-full bg-ink/95 backdrop-blur border-b border-seam md:hidden flex flex-col items-center gap-6 py-8 transition-all duration-300 ease-in-out ${
                     menuOpen
-                        ? "translate-y-0 opacity-100 pointer-events-auto"
-                        : "-translate-y-4 opacity-0 pointer-events-none"
+                        ? "visible translate-y-0 opacity-100 pointer-events-auto"
+                        : "invisible -translate-y-4 opacity-0 pointer-events-none"
                 }`}
             >
                 {links.map(({ to, label }) => (
@@ -98,6 +104,7 @@ const Navbar = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     title="GitHub"
+                    aria-label="GitHub profile"
                     onClick={() => setMenuOpen(false)}
                 >
                     <AiFillGithub />
@@ -114,7 +121,7 @@ const Navbar = () => {
                 >
                     Hire me on Upwork
                 </a>
-            </div>
+            </nav>
         </header>
     );
 };

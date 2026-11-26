@@ -15,12 +15,12 @@ const Projects = () => {
   const rest = visible.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="py-16 px-6 md:px-16 min-h-screen">
+    <div id="projects" className="py-16 px-6 md:px-16 min-h-screen">
       <div className="max-w-screen-xl mx-auto mt-14">
         <SectionHeading
           as="h1"
           label="Projects"
-          title="Selected work"
+          title="Software Development Projects by Dinesh Chaudhari"
           sub="From soldered prototypes to deployed products — a few things I've built recently."
         />
 
@@ -42,34 +42,41 @@ const Projects = () => {
         </div>
 
         {featured.length > 0 && (
-          <>
-            <h2 className="font-mono text-copper text-xs tracking-[0.25em] uppercase mb-6">Featured</h2>
+          <section aria-labelledby="featured-projects-heading">
+            <h2 id="featured-projects-heading" className="font-mono text-copper text-xs tracking-[0.25em] uppercase mb-6">Featured</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
               {featured.map((project) => (
                 <ProjectCard key={project.title} {...project} featured />
               ))}
             </div>
-          </>
+          </section>
         )}
 
         {rest.length > 0 && (
-          <>
-            {featured.length > 0 && (
-              <h2 className="font-mono text-copper text-xs tracking-[0.25em] uppercase mb-6">More projects</h2>
-            )}
+          <section aria-labelledby="more-projects-heading">
+            {/* Always present so cards (h3) never sit directly under the h1;
+                only visible when a "Featured" group precedes it, as before. */}
+            <h2
+              id="more-projects-heading"
+              className={featured.length > 0
+                ? "font-mono text-copper text-xs tracking-[0.25em] uppercase mb-6"
+                : "sr-only"}
+            >
+              {featured.length > 0 ? "More projects" : `${active} projects`}
+            </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {rest.map((project) => (
                 <ProjectCard key={project.title} {...project} />
               ))}
             </div>
-          </>
+          </section>
         )}
 
         {visible.length === 0 && (
           <p className="text-ash font-mono">No projects in this category yet.</p>
         )}
       </div>
-    </section>
+    </div>
   );
 };
 
