@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
+import { SiUpwork } from "react-icons/si";
+import { UPWORK_URL, trackUpwork } from "../../upwork";
 import SectionHeading from "../SectionHeading";
 
 /*
@@ -145,6 +147,20 @@ function Contact() {
           </a>
           <p className="font-mono text-[11px] text-ash mt-2 text-center">
             Opens WhatsApp with whatever you have typed above.
+          </p>
+
+          <a
+            href={UPWORK_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackUpwork("contact")}
+            className="w-full flex items-center justify-center gap-2 border border-seam hover:border-copper text-bone hover:text-copper py-2.5 px-4 rounded-sm font-semibold transition-colors mt-4"
+          >
+            <SiUpwork className="text-lg text-copper" />
+            Hire me on Upwork
+          </a>
+          <p className="font-mono text-[11px] text-ash mt-2 text-center">
+            Prefer contracts and payments through Upwork? Start there.
           </p>
 
           {status === "sent" && (

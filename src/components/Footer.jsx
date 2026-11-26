@@ -6,6 +6,7 @@ import {
   } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { SiUpwork } from "react-icons/si";
+import { UPWORK_URL, trackUpwork } from "../upwork";
 
 const Footer = () =>{
     return(
@@ -27,7 +28,8 @@ const Footer = () =>{
             <AiFillGithub />
           </a>
           <a
-            href="https://www.upwork.com/freelancers/~01467adfc75e48ae91"
+            href={UPWORK_URL}
+            onClick={() => trackUpwork("footer")}
             target="_blank"
             rel="noreferrer"
             className="hover:text-copper transition-colors"

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import { AiFillGithub } from "react-icons/ai";
+import { UPWORK_URL, trackUpwork } from "../upwork";
 
 const links = [
     { to: "/", label: "Home" },
@@ -47,6 +48,15 @@ const Navbar = () => {
                 >
                     <AiFillGithub />
                 </a>
+                <a
+                    href={UPWORK_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackUpwork("navbar")}
+                    className="font-mono text-xs tracking-widest uppercase bg-copper hover:bg-copper-bright text-ink font-semibold px-4 py-2 rounded-sm transition-colors"
+                >
+                    Hire me
+                </a>
             </nav>
 
             {/* Mobile Menu Icon */}
@@ -91,6 +101,18 @@ const Navbar = () => {
                     onClick={() => setMenuOpen(false)}
                 >
                     <AiFillGithub />
+                </a>
+                <a
+                    href={UPWORK_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                        trackUpwork("navbar_mobile");
+                        setMenuOpen(false);
+                    }}
+                    className="font-mono text-sm tracking-widest uppercase bg-copper text-ink font-semibold px-6 py-2.5 rounded-sm"
+                >
+                    Hire me on Upwork
                 </a>
             </div>
         </header>

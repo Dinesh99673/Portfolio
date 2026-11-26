@@ -1,0 +1,23 @@
+# Dinesh Chaudhari — Full-Stack & Embedded Engineer
+
+> Full-stack developer based in Pune, India, available for freelance projects on Upwork and open to full-time roles. Builds products end to end: REST APIs, React apps shipped to Android, and the embedded firmware underneath.
+
+## Highlights
+
+- Sole developer of Rabbitship at Innover Labs, a multi-courier logistics platform serving 1,000+ users
+- Ranked 14th of 3,000 teams at the OpenAI Codex Hackathon
+- Lead developer at ProBuilder
+
+## Hire / contact
+
+- [Hire on Upwork](https://www.upwork.com/freelancers/~01467adfc75e48ae91): preferred for freelance contracts
+- [Contact form & WhatsApp](https://dinesh.probuilder.in/Contact)
+- [GitHub](https://github.com/Dinesh99673)
+- [LinkedIn](https://www.linkedin.com/in/dinesh7821/)
+
+## Pages
+
+- [Home](https://dinesh.probuilder.in/): overview and experience
+- [About](https://dinesh.probuilder.in/About): background and skills
+- [Projects](https://dinesh.probuilder.in/Project): GhostDesk, DSigniteFitness, ProBuilder.in, Wappr, BioPrint-AI, Secure Donations on Blockchain, Schedula, Gesture AI (air-writing recognition), Smart EV Recharge Assistant, Coin Sorting Machine, BMS cell balancing, Structify
+- [Resume](https://dinesh.probuilder.in/Resume): downloadable CV

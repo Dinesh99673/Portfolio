@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { SiUpwork } from "react-icons/si";
+import { UPWORK_URL, trackUpwork } from "../../upwork";
 import HoverPortrait from "./HoverPortrait";
 import Introduction from "./Introduction";
 import Experience from "./Experience";
@@ -39,6 +41,20 @@ const Home = () => {
                             Full Stack Developer
                             <span className="text-ash">Innover Labs</span>
                         </span>
+                        <a
+                            href={UPWORK_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => trackUpwork("badge")}
+                            title="Hire me on Upwork"
+                            className="flex items-center gap-2 font-mono text-xs md:text-sm border border-seam bg-panel text-bone px-3 py-1.5 rounded-sm hover:border-trace transition-colors"
+                        >
+                            <span className="relative flex h-2 w-2" aria-hidden="true">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-trace opacity-60"></span>
+                                <span className="relative inline-flex h-2 w-2 rounded-full bg-trace"></span>
+                            </span>
+                            Open to freelance &amp; full-time
+                        </a>
                     </div>
 
                     <div className="flex flex-wrap gap-4 mt-10">
@@ -54,6 +70,16 @@ const Home = () => {
                         >
                             Resume
                         </Link>
+                        <a
+                            href={UPWORK_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => trackUpwork("hero")}
+                            className="flex items-center gap-2 border border-seam hover:border-copper text-bone hover:text-copper font-semibold px-6 py-3 rounded-sm transition-colors"
+                        >
+                            <SiUpwork className="text-lg" />
+                            Hire me on Upwork ↗
+                        </a>
                     </div>
                 </div>
 
