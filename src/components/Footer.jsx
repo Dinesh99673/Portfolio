@@ -5,7 +5,7 @@ import {
     AiFillInstagram,
   } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
-import { SiLeetcode } from "react-icons/si";
+import { SiUpwork } from "react-icons/si";
 
 const Footer = () =>{
     return(
@@ -27,13 +27,13 @@ const Footer = () =>{
             <AiFillGithub />
           </a>
           <a
-            href="https://leetcode.com/u/dinesh99673/"
+            href="https://www.upwork.com/freelancers/~01467adfc75e48ae91"
             target="_blank"
             rel="noreferrer"
             className="hover:text-copper transition-colors"
-            title="LeetCode"
+            title="Upwork"
           >
-            <SiLeetcode />
+            <SiUpwork />
           </a>
           <a
             href="https://www.linkedin.com/in/dinesh7821"

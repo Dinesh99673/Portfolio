@@ -4,11 +4,11 @@ import {
   AiFillInstagram,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
-import { SiLeetcode } from "react-icons/si";
+import { SiUpwork } from "react-icons/si";
 
 const socials = [
   { href: "https://github.com/Dinesh99673", title: "GitHub", Icon: AiFillGithub },
-  { href: "https://leetcode.com/u/dinesh99673/", title: "LeetCode", Icon: SiLeetcode },
+  { href: "https://www.upwork.com/freelancers/~01467adfc75e48ae91", title: "Upwork", Icon: SiUpwork },
   { href: "https://www.linkedin.com/in/dinesh7821/", title: "LinkedIn", Icon: FaLinkedinIn },
   { href: "https://www.instagram.com/dineshdchoudhari?igsh=MTg4dWN5aWh1aWw3OA==", title: "Instagram", Icon: AiFillInstagram },
 ];
